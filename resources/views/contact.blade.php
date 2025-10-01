@@ -9,7 +9,7 @@
 
         <div class="container section-title" data-aos="fade-up">
             <h2>Contact</h2>
-            <p>N'hésitez pas à me contacter pour toute question ou projet</p>
+            <p>Feel free to contact me for any questions or projects.</p>
         </div>
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -58,17 +58,17 @@
                         <div class="row gy-4">
 
                             <div class="col-md-6">
-                                <label for="name-field" class="pb-2">Votre Nom</label>
+                                <label for="name-field" class="pb-2">name</label>
                                 <input type="text" name="name" id="name-field" class="form-control" required="">
                             </div>
 
                             <div class="col-md-6">
-                                <label for="email-field" class="pb-2">Votre Email</label>
+                                <label for="email-field" class="pb-2">Email</label>
                                 <input type="email" class="form-control" name="email" id="email-field" required="">
                             </div>
 
                             <div class="col-md-12">
-                                <label for="subject-field" class="pb-2">Sujet</label>
+                                <label for="subject-field" class="pb-2">subject</label>
                                 <input type="text" class="form-control" name="subject" id="subject-field" required="">
                             </div>
 
@@ -79,7 +79,7 @@
 
                             <div class="col-md-12 text-center">
 
-                                <button type="button" id="btn-send" >Envoyer le Message</button>
+                                <button type="button" id="btn-send" >Send</button>
                             </div>
 
                         </div>
