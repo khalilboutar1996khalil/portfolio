@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DownloadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Route::get('/contact', function () {return view('contact');})->name('contact');
 Route::get('/resume', function () {return view('resume');})->name('resume');
 Route::get('/service', function () {return view('service');})->name('service');
 Route::post('/store/contact', [ContactController::class, 'send'])->name('contact.store');
+Route::get('/download',DownloadController::class)->name('download');
