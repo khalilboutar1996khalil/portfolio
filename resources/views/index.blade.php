@@ -12,7 +12,7 @@
         <h2>Mohamed Khalil Boutar</h2>
         <p>I'm Software Engineer</p>
         <a href="{{ route('about') }}" class="btn-get-started">About Me</a>
-        <a class="btn-get-started" href="/download"  >Download CV</a>
+        <a class="btn-get-started" href="/download"  target="_blank">Download CV</a>
       </div>
     </div>
   </div>
