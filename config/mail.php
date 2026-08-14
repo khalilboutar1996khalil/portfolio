@@ -114,6 +114,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Contact Form Notification Address
+    |--------------------------------------------------------------------------
+    |
+    | Address that receives a notification whenever a visitor submits the
+    | portfolio contact form.
+    |
+    */
+
+    'admin_address' => env('MAIL_ADMIN_ADDRESS', 'khalilboutar@gmail.com'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |

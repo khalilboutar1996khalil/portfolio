@@ -1,89 +1,34 @@
 @extends('welcome')
 
-@section('title', 'Home')
+@section('title', 'Services')
+
+@php
+    $services = [
+        ['icon' => 'bi-laptop', 'title' => 'Web Development', 'desc' => 'Design and develop modern web applications using Laravel and Angular for scalable and high-performing solutions.'],
+        ['icon' => 'bi-phone', 'title' => 'Mobile App Development', 'desc' => 'Build cross-platform mobile applications using Flutter integrated with REST APIs and backend services.'],
+        ['icon' => 'bi-server', 'title' => 'API & Microservices', 'desc' => 'Design and implement APIs, microservices, and message queues (RabbitMQ) to ensure robust and scalable architectures.'],
+        ['icon' => 'bi-gear', 'title' => 'ERP & Business Solutions', 'desc' => 'Develop ERP systems and business management applications for multi-company operations with modular design.'],
+        ['icon' => 'bi-bar-chart', 'title' => 'Data & Reporting', 'desc' => 'Create interactive dashboards, reports, and KPI monitoring tools for business insights and decision making.'],
+        ['icon' => 'bi-shield-lock', 'title' => 'Security & File Management', 'desc' => 'Implement secure file handling, user authentication, and encrypted storage for sensitive data.'],
+    ];
+@endphp
 
 @section('content')
- <section id="services" class="services section">
+    <section class="py-20">
+        <div class="container-app">
+            <x-section-heading title="Services" subtitle="Here are the main services I provide as a Software Engineer" />
 
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Here are the main services I provide as a Software Engineer</p>
-      </div>
-
-      <div class="container">
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <div class="icon"><i class="bi bi-laptop"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>Web Development</h3>
-              </a>
-              <p>Design and develop modern web applications using Laravel and Angular for scalable and high-performing
-                solutions.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                @foreach ($services as $s)
+                    <div class="card">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl">
+                            <i class="bi {{ $s['icon'] }}"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-neutral-900">{{ $s['title'] }}</h3>
+                        <p class="mt-2 text-sm text-neutral-500">{{ $s['desc'] }}</p>
+                    </div>
+                @endforeach
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <div class="icon"><i class="bi bi-phone"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>Mobile App Development</h3>
-              </a>
-              <p>Build cross-platform mobile applications using Flutter integrated with REST APIs and backend services.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <div class="icon"><i class="bi bi-server"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>API & Microservices</h3>
-              </a>
-              <p>Design and implement APIs, microservices, and message queues (RabbitMQ) to ensure robust and scalable
-                architectures.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <div class="icon"><i class="bi bi-gear"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>ERP & Business Solutions</h3>
-              </a>
-              <p>Develop ERP systems and business management applications for multi-company operations with modular
-                design.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>Data & Reporting</h3>
-              </a>
-              <p>Create interactive dashboards, reports, and KPI monitoring tools for business insights and decision
-                making.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <div class="icon"><i class="bi bi-shield-lock"></i></div>
-              <a href="#" class="stretched-link">
-                <h3>Security & File Management</h3>
-              </a>
-              <p>Implement secure file handling, user authentication, and encrypted storage for sensitive data.</p>
-            </div>
-          </div><!-- End Service Item -->
-
         </div>
-      </div>
-
-
-
-
-    </section><!-- /Services Section -->
-
+    </section>
 @endsection

@@ -1,279 +1,98 @@
 @extends('welcome')
 
-@section('title', 'Home')
+@section('title', 'About')
+
+@php
+    $skills = [
+        ['HTML', 100], ['CSS', 100], ['JavaScript', 75], ['.NET', 50], ['SQL', 80], ['Linux', 80],
+        ['Laravel', 90], ['Angular JS', 90], ['SpringBoot', 70], ['React JS', 70], ['Flutter', 40], ['QA Testing', 60],
+    ];
+    $languages = [
+        ['Arabic', 'Native'], ['French', 'Fluent'], ['English', 'Professional'], ['Italian', 'Intermediate'],
+    ];
+    $stats = [
+        ['Clients', 2], ['Projects', 10], ['Years of experience', 3],
+    ];
+@endphp
 
 @section('content')
-    <!-- About Section -->
-    <section id="about" class="about section">
+    <section class="py-20">
+        <div class="container-app">
+            <x-section-heading title="About" />
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>About</h2>
+            <x-reveal class="grid gap-12 md:grid-cols-3 items-start">
+                <img src="{{ asset('img/profile-img.jpg') }}" alt="Mohamed Khalil Boutar"
+                    class="rounded-2xl w-full max-w-xs mx-auto md:mx-0">
 
-        </div><!-- End Section Title -->
-
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row gy-4 justify-content-center">
-                <div class="col-lg-4">
-                    <img style="border-radius: 3em" src="img/profile-img.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-8 content">
-                    <h2>QA Tester &amp; Web Developer.</h2>
-                    <p>
-                        I am a Software Engineer with 3 years of experience in web development.
-                        I specialize in building modern applications using Laravel and Angular.
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl">QA Tester &amp; Web Developer.</h3>
+                    <p class="mt-3 text-neutral-500">
+                        I am a Software Engineer with 3 years of experience in web development. I specialize in
+                        building modern applications using Laravel and Angular.
                     </p>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>30 September
-                                        1996</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+216 53117158</span>
-                                </li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Ariana, Tunisia</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>29</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Engineer</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                                    <span>khalilboutar@gmail.com</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
 
+                    <dl class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">Birthday:</dt><dd class="text-neutral-500">30 September 1996</dd></div>
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">Age:</dt><dd class="text-neutral-500">29</dd></div>
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">Phone:</dt><dd class="text-neutral-500">+216 53117158</dd></div>
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">Degree:</dt><dd class="text-neutral-500">Engineer</dd></div>
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">City:</dt><dd class="text-neutral-500">Ariana, Tunisia</dd></div>
+                        <div class="flex gap-2"><dt class="font-medium text-neutral-900">Email:</dt><dd class="text-neutral-500">khalilboutar@gmail.com</dd></div>
+                    </dl>
                 </div>
-            </div>
-
+            </x-reveal>
         </div>
+    </section>
 
-    </section><!-- /About Section -->
+    <section class="py-20 bg-neutral-50">
+        <div class="container-app">
+            <x-section-heading title="Skills" />
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Skills</h2>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row skills-content skills-animation">
-
-                <div class="col-lg-6">
-
-                    <div class="progress">
-                        <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
+            <div class="grid gap-x-12 gap-y-5 md:grid-cols-2 max-w-4xl mx-auto">
+                @foreach ($skills as [$name, $pct])
+                    <div x-data="{ pct: 0 }" x-intersect.once="pct = {{ $pct }}">
+                        <div class="flex justify-between text-sm mb-1.5">
+                            <span class="font-medium text-neutral-700">{{ $name }}</span>
+                            <span class="text-neutral-400" x-text="pct + '%'"></span>
                         </div>
-                    </div><!-- End Skills Item -->
-
-                    <div class="progress">
-                        <span class="skill"><span>CSS</span> <i class="val">100%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-
-                    <div class="progress">
-                        <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-
-                    <div class="progress">
-                        <span class="skill"><span>.NET</span> <i class="val">50%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-                    <div class="progress">
-                        <span class="skill"><span>SQl</span> <i class="val">80%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-                    <div class="progress">
-                        <span class="skill"><span>Linux</span> <i class="val">80%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
+                        <div class="h-1.5 rounded-full bg-neutral-200">
+                            <div class="h-1.5 rounded-full bg-accent-600 transition-all duration-1000"
+                                :style="`width: ${pct}%`"></div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="col-lg-6">
-
-                    <div class="progress">
-                        <span class="skill"><span>Laravel</span> <i class="val">90%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-
-                    <div class="progress">
-                        <span class="skill"><span>Angular JS</span> <i class="val">90%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-
-
-                    <div class="progress">
-                        <span class="skill"><span>SpringBoot</span> <i class="val">70%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-                    <div class="progress">
-                        <span class="skill"><span>React JS</span> <i class="val">70%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-
-                    <div class="progress">
-                        <span class="skill"><span>Flutter</span> <i class="val">40%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div><!-- End Skills Item -->
-                    <div class="progress">
-                        <span class="skill"><span>QA Testing</span> <i class="val">60%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-                        </div><!-- End Skills Item -->
-
-                    </div>
-
-                </div>
-
-            </div>
-
-    </section><!-- /Skills Section -->
-    <!-- Languages Section -->
-    <section id="languages" class="languages section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Languages</h2>
-            <p>Languages I can speak and work with</p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row gy-4">
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <i class="bi bi-translate" style="font-size: 2rem;"></i>
-                        <p><strong>Arabic</strong></p>
-                        <span>Native</span>
-                    </div>
-                </div><!-- End Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <i class="bi bi-translate" style="font-size: 2rem;"></i>
-                        <p><strong>French</strong></p>
-                        <span>Fluent</span>
-                    </div>
-                </div><!-- End Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <i class="bi bi-translate" style="font-size: 2rem;"></i>
-                        <p><strong>English</strong></p>
-                        <span>Professional</span>
-                    </div>
-                </div><!-- End Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <i class="bi bi-translate" style="font-size: 2rem;"></i>
-                        <p><strong>Italian</strong></p>
-                        <span>Intermediate</span>
-                    </div>
-                </div><!-- End Item -->
-
+                @endforeach
             </div>
         </div>
     </section>
 
+    <section class="py-20">
+        <div class="container-app">
+            <x-section-heading title="Languages" subtitle="Languages I can speak and work with" />
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Facts</h2>
-            <p>Highlights of my profile</p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row gy-4">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Clients</p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Projects</p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Years of experience</p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-
-
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                @foreach ($languages as [$lang, $level])
+                    <x-card as="div" class="text-center">
+                        <i class="bi bi-translate text-2xl text-accent-600"></i>
+                        <p class="mt-3 font-medium text-neutral-900">{{ $lang }}</p>
+                        <p class="text-sm text-neutral-500">{{ $level }}</p>
+                    </x-card>
+                @endforeach
             </div>
-
         </div>
+    </section>
 
-    </section><!-- /Stats Section -->
+    <section class="py-20 bg-neutral-50">
+        <div class="container-app">
+            <x-section-heading title="Facts" subtitle="Highlights of my profile" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+                @foreach ($stats as [$label, $end])
+                    <div x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= {{ $end }}) clearInterval(i) }, {{ $end > 0 ? intdiv(1000, $end) : 1000 }})">
+                        <span class="text-4xl font-semibold text-neutral-900" x-text="n"></span>
+                        <p class="mt-1 text-sm text-neutral-500">{{ $label }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection
