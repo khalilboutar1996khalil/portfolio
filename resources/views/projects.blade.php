@@ -55,7 +55,7 @@
 @endphp
 
 @section('content')
-    <section class="py-20">
+    <section class="py-20 section-tint">
         <div class="container-app">
             <x-section-heading title="Projects"
                 subtitle="A selection of platforms and systems I've designed and built throughout my career" />
@@ -64,7 +64,7 @@
                 <div class="flex flex-wrap justify-center gap-2 mb-10">
                     @foreach ($filters as $f)
                         <button @click="filter = '{{ $f['key'] }}'"
-                            :class="filter === '{{ $f['key'] }}' ? 'bg-accent-600 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'"
+                            :class="filter === '{{ $f['key'] }}' ? 'bg-accent-600 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'"
                             class="rounded-full px-4 py-2 text-sm font-medium transition-colors">
                             {!! $f['label'] !!}
                         </button>
@@ -74,16 +74,19 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach ($projects as $p)
                         <div x-show="filter === 'all' || {{ \Illuminate\Support\Js::from($p['cats']) }}.includes(filter)"
-                            x-transition.opacity class="card">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl">
+                            x-transition.opacity
+                            x-intersect.once="$el.classList.remove('opacity-0', 'translate-y-4'); $el.classList.add('opacity-100', 'translate-y-0')"
+                            style="transition-delay: {{ $loop->index * 80 }}ms"
+                            class="card opacity-0 translate-y-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
                                 <i class="bi {{ $p['icon'] }}"></i>
                             </div>
-                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-neutral-400">{!! $p['meta'] !!}</p>
-                            <h3 class="mt-1 text-lg font-semibold text-neutral-900">{!! $p['title'] !!}</h3>
-                            <p class="mt-2 text-sm text-neutral-500">{{ $p['desc'] }}</p>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-neutral-400 dark:text-neutral-500">{!! $p['meta'] !!}</p>
+                            <h3 class="mt-1 text-lg font-semibold text-neutral-900 dark:text-white">{!! $p['title'] !!}</h3>
+                            <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{{ $p['desc'] }}</p>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 @foreach ($p['tags'] as $tag)
-                                    <span class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600">{{ $tag }}</span>
+                                    <span class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">{{ $tag }}</span>
                                 @endforeach
                             </div>
                         </div>

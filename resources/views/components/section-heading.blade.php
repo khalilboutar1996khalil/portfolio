@@ -1,6 +1,6 @@
 @props(['eyebrow' => null, 'title', 'subtitle' => null, 'align' => 'center'])
 
-<div class="{{ $align === 'center' ? 'text-center' : '' }} mb-12">
+<x-reveal class="{{ $align === 'center' ? 'text-center' : '' }} mb-12">
     @if ($eyebrow)
         <p class="section-eyebrow mb-2">{{ $eyebrow }}</p>
     @endif
@@ -8,4 +8,4 @@
     @if ($subtitle)
         <p class="mt-3 text-neutral-500 {{ $align === 'center' ? 'mx-auto max-w-2xl' : '' }}">{{ $subtitle }}</p>
     @endif
-</div>
+</x-reveal>

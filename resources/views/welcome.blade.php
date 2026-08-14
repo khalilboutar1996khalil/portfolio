@@ -5,6 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
     <title>@yield('title', 'Portfolio') &mdash; Mohamed Khalil Boutar</title>
     <meta name="description"
         content="@yield('description', 'Software Engineer specializing in Laravel & Angular full-stack development.')">
@@ -19,7 +28,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white text-neutral-800">
+<body class="bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 transition-colors duration-300">
 
     @include('layouts.header')
 

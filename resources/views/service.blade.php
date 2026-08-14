@@ -14,19 +14,19 @@
 @endphp
 
 @section('content')
-    <section class="py-20">
+    <section class="py-20 section-tint">
         <div class="container-app">
             <x-section-heading title="Services" subtitle="Here are the main services I provide as a Software Engineer" />
 
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($services as $s)
-                    <div class="card">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl">
+                    <x-reveal :delay="$loop->index * 80" class="card">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
                             <i class="bi {{ $s['icon'] }}"></i>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold text-neutral-900">{{ $s['title'] }}</h3>
-                        <p class="mt-2 text-sm text-neutral-500">{{ $s['desc'] }}</p>
-                    </div>
+                        <h3 class="mt-4 text-lg font-semibold text-neutral-900 dark:text-white">{{ $s['title'] }}</h3>
+                        <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{{ $s['desc'] }}</p>
+                    </x-reveal>
                 @endforeach
             </div>
         </div>

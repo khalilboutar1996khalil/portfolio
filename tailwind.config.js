@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     './resources/**/*.blade.php',
     './resources/**/*.js',
@@ -21,12 +22,16 @@ export default {
           950: '#0c0a09',
         },
         accent: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
+          50: '#f4f5ee',
+          100: '#e6e9d8',
+          200: '#cdd3b3',
+          300: '#9caa76',
+          400: '#749459',
+          500: '#4c7a52',
+          600: '#3a6142',
+          700: '#2e4a34',
+          800: '#233a28',
+          900: '#1a2b1e',
         },
       },
       fontFamily: {
