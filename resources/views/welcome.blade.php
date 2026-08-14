@@ -17,6 +17,23 @@
     <title>@yield('title', 'Portfolio') &mdash; Mohamed Khalil Boutar</title>
     <meta name="description"
         content="@yield('description', 'Software Engineer specializing in Laravel & Angular full-stack development.')">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mohamed Khalil Boutar">
+    <meta property="og:title" content="@yield('title', 'Portfolio') &mdash; Mohamed Khalil Boutar">
+    <meta property="og:description"
+        content="@yield('description', 'Software Engineer specializing in Laravel & Angular full-stack development.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('img/profile-img.jpg') }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Portfolio') &mdash; Mohamed Khalil Boutar">
+    <meta name="twitter:description"
+        content="@yield('description', 'Software Engineer specializing in Laravel & Angular full-stack development.')">
+    <meta name="twitter:image" content="{{ asset('img/profile-img.jpg') }}">
 
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 

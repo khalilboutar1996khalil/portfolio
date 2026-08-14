@@ -1,6 +1,7 @@
 @extends('welcome')
 
 @section('title', 'Services')
+@section('description', 'Web development, mobile apps, API & microservices, ERP solutions and more — services offered by Mohamed Khalil Boutar, Software Engineer.')
 
 @php
     $services = [

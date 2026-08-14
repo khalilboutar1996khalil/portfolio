@@ -1,6 +1,7 @@
 @extends('welcome')
 
 @section('title', 'Projects')
+@section('description', 'A selection of web platforms, ERP systems and personal projects designed and built by Mohamed Khalil Boutar using Laravel, Angular and modern APIs.')
 
 @php
     $projects = [

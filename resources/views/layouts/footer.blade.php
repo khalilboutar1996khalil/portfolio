@@ -71,10 +71,6 @@
             </x-reveal>
         </div>
 
-        <div
-            class="mt-12 flex flex-col items-center gap-3 border-t border-accent-800 pt-6 text-xs text-neutral-500 dark:border-surface-800 md:flex-row md:justify-between">
-            <p>&copy; {{ date('Y') }} Mohamed Khalil Boutar. All rights reserved.</p>
-            <p>Built with Laravel &amp; Tailwind CSS.</p>
-        </div>
+      
     </div>
 </footer>

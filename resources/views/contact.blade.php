@@ -1,6 +1,7 @@
 @extends('welcome')
 
 @section('title', 'Contact')
+@section('description', 'Get in touch with Mohamed Khalil Boutar for freelance projects, collaborations, or job opportunities in web development.')
 
 @section('content')
     <section class="py-20 section-tint">

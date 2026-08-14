@@ -1,6 +1,7 @@
 @extends('welcome')
 
 @section('title', 'About')
+@section('description', 'Mohamed Khalil Boutar — Software Engineer with 3 years of experience building web platforms with Laravel and Angular. Skills, languages and career highlights.')
 
 @php
     $skills = [
@@ -17,8 +18,6 @@
     ];
 
     $personalInfo = [
-        ['icon' => 'bi-gift', 'label' => 'Birthday', 'value' => '30 September 1996'],
-        ['icon' => 'bi-person-badge', 'label' => 'Age', 'value' => '29'],
         ['icon' => 'bi-telephone', 'label' => 'Phone', 'value' => '+216 53117158'],
         ['icon' => 'bi-mortarboard', 'label' => 'Degree', 'value' => 'Engineer'],
         ['icon' => 'bi-geo-alt', 'label' => 'City', 'value' => 'Ariana, Tunisia'],
