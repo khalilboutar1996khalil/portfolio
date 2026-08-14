@@ -34,7 +34,7 @@
 
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d10.095!3d36.866!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd336e6d3e7e01%3A0x0!2sAriana%2C%20Tunisia!5e0!3m2!1sen!2s!4v1695972000000!5m2!1sen!2s"
-                        class="w-full h-56 rounded-2xl border border-neutral-200 dark:border-neutral-700" style="border:0" loading="lazy"
+                        class="w-full h-56 rounded-2xl border border-neutral-200 dark:border-surface-700" style="border:0" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </x-reveal>
 
@@ -69,23 +69,23 @@
                             <div>
                                 <label for="name-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Name</label>
                                 <input type="text" name="name" id="name-field" required
-                                    class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500">
+                                    class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                             </div>
                             <div>
                                 <label for="email-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Email</label>
                                 <input type="email" name="email" id="email-field" required
-                                    class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500">
+                                    class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                             </div>
                         </div>
                         <div>
                             <label for="subject-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Subject</label>
                             <input type="text" name="subject" id="subject-field" required
-                                class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500">
+                                class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                         </div>
                         <div>
                             <label for="message-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Message</label>
                             <textarea name="message" id="message-field" rows="6" required
-                                class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500"></textarea>
+                                class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500"></textarea>
                         </div>
                         <button type="submit" :disabled="sending" class="btn-primary w-full sm:w-auto disabled:opacity-60">
                             <span x-show="!sending">Send</span>
@@ -94,7 +94,7 @@
                     </form>
 
                     <div x-show="toast" x-cloak x-transition
-                        :class="toastType === 'success' ? 'bg-neutral-900 dark:bg-neutral-700' : 'bg-red-600'"
+                        :class="toastType === 'success' ? 'bg-neutral-900 dark:bg-surface-800' : 'bg-red-600'"
                         class="fixed bottom-6 right-6 z-50 max-w-sm rounded-lg px-4 py-3 text-sm text-white shadow-lg"
                         x-text="toast"></div>
                     </div>

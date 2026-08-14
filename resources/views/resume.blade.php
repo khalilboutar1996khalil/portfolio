@@ -13,13 +13,13 @@
                 <div>
                     <h3 class="text-xl mb-6">Education</h3>
                     <div class="space-y-8">
-                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">Engineering Cycle in Computer Science</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">2019 - 2022</p>
                             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 italic">Private Higher School of Engineering and
                                 Technology &ndash; ESPRIT, Ariana</p>
                         </x-reveal>
-                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">Bachelor in Management Information Systems</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">2016 - 2019</p>
                             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 italic">Higher School of Digital Economics (ESEN),
@@ -29,11 +29,11 @@
 
                     <h3 class="text-xl mb-6 mt-12">Certifications</h3>
                     <div class="space-y-8">
-                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">Front End Developer &ndash; React JS Certified</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">GOMYCODE &ndash; 2024</p>
                         </x-reveal>
-                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">RHCSA &ndash; Red Hat Certified System Administrator</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">TEKUP &ndash; 2025</p>
                             <ul class="mt-2 list-disc list-outside ml-4 text-sm text-neutral-500 dark:text-neutral-400 space-y-1">
@@ -44,7 +44,7 @@
                                 <li>Prepared for and passed the official Red Hat certification exam.</li>
                             </ul>
                         </x-reveal>
-                        <x-reveal :delay="160" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="160" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">QA Testing (In Progress)</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">Gust Training &ndash; 2025</p>
                             <ul class="mt-2 list-disc list-outside ml-4 text-sm text-neutral-500 dark:text-neutral-400 space-y-1">
@@ -60,7 +60,7 @@
                 <div>
                     <h3 class="text-xl mb-6">Professional Experience</h3>
                     <div class="space-y-8">
-                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="0" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">Software Engineer</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">May 2024 &ndash; Present</p>
                             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 italic">IB Space, Ariana, Tunisia</p>
@@ -73,7 +73,7 @@
                                 <li>Calculated and managed company certificates.</li>
                             </ul>
                         </x-reveal>
-                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="80" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">FullStack Developer (Laravel / Angular)</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">September 2022 &ndash; May 2024</p>
                             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 italic">SOFTWIND, Ariana, Tunisia</p>
@@ -88,7 +88,7 @@
                                     for distance calculations.</li>
                             </ul>
                         </x-reveal>
-                        <x-reveal :delay="160" class="relative border-l-2 border-neutral-200 dark:border-neutral-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
+                        <x-reveal :delay="160" class="relative border-l-2 border-neutral-200 dark:border-surface-700 pl-6 before:absolute before:-left-[5px] before:top-1.5 before:h-2.5 before:w-2.5 before:rounded-full before:bg-accent-600">
                             <h4 class="font-semibold text-neutral-900 dark:text-white">FullStack Developer (Laravel / Angular)</h4>
                             <p class="text-sm text-neutral-400 dark:text-neutral-500">February 2022 &ndash; August 2022</p>
                             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 italic">WELYNE, Center Urbain Nord, Tunisia</p>

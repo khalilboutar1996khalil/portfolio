@@ -28,7 +28,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 transition-colors duration-300">
+<body class="bg-white text-neutral-800 dark:bg-surface-950 dark:text-neutral-200 transition-colors duration-300">
 
     @include('layouts.header')
 

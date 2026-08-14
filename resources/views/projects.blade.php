@@ -64,7 +64,7 @@
                 <div class="flex flex-wrap justify-center gap-2 mb-10">
                     @foreach ($filters as $f)
                         <button @click="filter = '{{ $f['key'] }}'"
-                            :class="filter === '{{ $f['key'] }}' ? 'bg-accent-600 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'"
+                            :class="filter === '{{ $f['key'] }}' ? 'bg-accent-600 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-surface-900 dark:text-neutral-300 dark:hover:bg-surface-800'"
                             class="rounded-full px-4 py-2 text-sm font-medium transition-colors">
                             {!! $f['label'] !!}
                         </button>
@@ -86,7 +86,7 @@
                             <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{{ $p['desc'] }}</p>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 @foreach ($p['tags'] as $tag)
-                                    <span class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">{{ $tag }}</span>
+                                    <span class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-surface-800 dark:text-neutral-300">{{ $tag }}</span>
                                 @endforeach
                             </div>
                         </div>

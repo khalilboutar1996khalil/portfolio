@@ -56,7 +56,7 @@
                                 <span class="font-medium text-neutral-700 dark:text-neutral-300">{{ $name }}</span>
                                 <span class="text-neutral-400 dark:text-neutral-500" x-text="pct + '%'"></span>
                             </div>
-                            <div class="h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-700">
+                            <div class="h-1.5 rounded-full bg-neutral-200 dark:bg-surface-800">
                                 <div class="h-1.5 rounded-full bg-accent-600 dark:bg-accent-500 transition-all duration-1000"
                                     :style="`width: ${pct}%`"></div>
                             </div>
