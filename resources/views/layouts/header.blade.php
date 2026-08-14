@@ -4,13 +4,11 @@
     <div class="container-app flex h-16 items-center justify-between">
 
         <a href="{{ url('/') }}" class="flex items-center gap-2">
-            <img src="{{ asset('img/logo.png') }}" alt="Mohamed Khalil Boutar" class="h-8 w-8">
-            <span class="font-semibold text-neutral-900 dark:text-white">Khalil Boutar</span>
+           
         </a>
 
         <nav class="hidden md:flex items-center gap-8">
-            <x-nav-link :href="url('/')" :active="Request::is('/')">Home</x-nav-link>
-            <x-nav-link :href="url('about')" :active="Request::is('about')">About</x-nav-link>
+            <x-nav-link :href="url('/')" :active="Request::is('/')">About</x-nav-link>
             <x-nav-link :href="url('projects')" :active="Request::is('projects')">Projects</x-nav-link>
             <x-nav-link :href="url('resume')" :active="Request::is('resume')">Resume</x-nav-link>
             <x-nav-link :href="url('service')" :active="Request::is('service')">Services</x-nav-link>
@@ -46,9 +44,7 @@
         class="md:hidden absolute inset-x-0 top-16 z-50 bg-white border-b border-neutral-200 shadow-lg dark:bg-surface-950 dark:border-surface-800">
         <nav class="container-app flex flex-col gap-1 py-4">
             <a href="{{ url('/') }}" @click="open = false"
-                class="rounded-lg px-3 py-3 text-sm font-medium {{ Request::is('/') ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/40' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-surface-800' }}">Home</a>
-            <a href="{{ url('about') }}" @click="open = false"
-                class="rounded-lg px-3 py-3 text-sm font-medium {{ Request::is('about') ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/40' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-surface-800' }}">About</a>
+                class="rounded-lg px-3 py-3 text-sm font-medium {{ Request::is('/') ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/40' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-surface-800' }}">About</a>
             <a href="{{ url('projects') }}" @click="open = false"
                 class="rounded-lg px-3 py-3 text-sm font-medium {{ Request::is('projects') ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/40' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-surface-800' }}">Projects</a>
             <a href="{{ url('resume') }}" @click="open = false"

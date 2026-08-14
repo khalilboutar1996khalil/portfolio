@@ -44,6 +44,33 @@
             'tags' => ['Laravel', 'RabbitMQ', 'API Gateway'],
             'cats' => ['api'],
         ],
+        [
+            'icon' => 'bi-airplane',
+            'meta' => 'Personal Project &middot; 2026',
+            'title' => 'DocVisa Tunisie',
+            'desc' => "One-page showcase site for a visa application assistance service, with a bilingual (FR/AR, RTL-aware) dossier simulator that generates a summary sent directly via WhatsApp — fully static, no backend.",
+            'tags' => ['JavaScript', 'i18n FR/AR', 'WhatsApp API'],
+            'cats' => ['web', 'personal'],
+            'url' => 'https://github.com/khalilboutar1996khalil/site-visa',
+        ],
+        [
+            'icon' => 'bi-shop',
+            'meta' => 'Personal Project &middot; 2026',
+            'title' => 'Boutique &ndash; Shop Admin Dashboard',
+            'desc' => "Admin interface for an online shop connected to a Spring Boot API: JWT authentication, a real-time stats dashboard, and full CRUD for products, categories, clients and orders.",
+            'tags' => ['Angular 21', 'TypeScript', 'JWT Auth'],
+            'cats' => ['web', 'erp', 'personal'],
+            'url' => 'https://github.com/khalilboutar1996khalil/boutique-frontend',
+        ],
+        [
+            'icon' => 'bi-basket2',
+            'meta' => 'Personal Project &middot; 2026',
+            'title' => 'Bakery Showcase &amp; Ordering Site',
+            'desc' => "Modern website for a bakery to present products and manage orders, giving customers a simple and pleasant online experience.",
+            'tags' => ['JavaScript', 'Netlify'],
+            'cats' => ['web', 'personal'],
+            'url' => 'https://github.com/khalilboutar1996khalil/site-baking',
+        ],
     ];
 
     $filters = [
@@ -51,6 +78,7 @@
         ['key' => 'web', 'label' => 'Web Apps'],
         ['key' => 'erp', 'label' => 'ERP &amp; Business'],
         ['key' => 'api', 'label' => 'API &amp; Backend'],
+        ['key' => 'personal', 'label' => 'Personal Projects'],
     ];
 @endphp
 
@@ -89,6 +117,12 @@
                                     <span class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-surface-800 dark:text-neutral-300">{{ $tag }}</span>
                                 @endforeach
                             </div>
+                            @isset($p['url'])
+                                <a href="{{ $p['url'] }}" target="_blank" rel="noopener noreferrer"
+                                    class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-600 hover:text-accent-700 dark:text-accent-400 dark:hover:text-accent-300 transition-colors">
+                                    <i class="bi bi-github"></i> View on GitHub
+                                </a>
+                            @endisset
                         </div>
                     @endforeach
                 </div>
