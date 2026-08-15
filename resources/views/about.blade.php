@@ -28,15 +28,15 @@
 @section('content')
     <section class="py-20">
         <div class="container-app">
-            <x-section-heading eyebrow="{{ __('Get to know me') }}" title="{{ __('About') }}" />
+            <x-section-heading :eyebrow="__('Get to know me')" :title="__('About')" />
 
             <div class="grid gap-12 md:grid-cols-3 items-start">
-                <x-reveal class="relative mx-auto max-w-xs md:mx-0">
+                <x-reveal class="relative mx-auto max-w-sm md:mx-0">
                     <div
-                        class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent-400/30 to-accent-700/30 blur-2xl dark:from-accent-500/20 dark:to-accent-800/30">
+                        class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-accent-400/30 to-accent-700/30 blur-2xl dark:from-accent-500/20 dark:to-accent-800/30">
                     </div>
                     <img src="{{ asset('img/profile-img.jpg') }}" alt="Mohamed Khalil Boutar"
-                        class="relative w-full rounded-2xl shadow-xl ring-4 ring-white dark:ring-surface-900">
+                        class="relative w-full rounded-[2rem] shadow-xl ring-4 ring-white dark:ring-surface-900">
                 </x-reveal>
 
                 <div class="md:col-span-2">
@@ -72,7 +72,7 @@
 
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="{{ __('Skills') }}" />
+            <x-section-heading :title="__('Skills')" />
 
             <div class="grid gap-x-12 gap-y-5 md:grid-cols-2 max-w-4xl mx-auto">
                 @foreach ($skills as [$name, $pct])
@@ -95,7 +95,7 @@
 
     <section class="py-20">
         <div class="container-app">
-            <x-section-heading title="{{ __('Languages') }}" subtitle="{{ __('Languages I can speak and work with') }}" />
+            <x-section-heading :title="__('Languages')" :subtitle="__('Languages I can speak and work with')" />
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @foreach ($languages as [$lang, $level])
@@ -111,7 +111,7 @@
 
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading eyebrow="{{ __('By the numbers') }}" title="{{ __('Facts') }}" subtitle="{{ __('Highlights of my profile') }}" />
+            <x-section-heading :eyebrow="__('By the numbers')" :title="__('Facts')" :subtitle="__('Highlights of my profile')" />
 
             <div class="grid grid-cols-1 gap-6 max-w-3xl mx-auto sm:grid-cols-3">
                 @foreach ($stats as $i => $stat)

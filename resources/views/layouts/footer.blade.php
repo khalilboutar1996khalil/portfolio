@@ -1,7 +1,4 @@
-<footer class="relative overflow-hidden bg-accent-900 text-neutral-300 transition-colors duration-300 dark:bg-surface-950">
-    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(156,170,118,0.18),transparent_55%)] dark:bg-[radial-gradient(circle_at_15%_0%,rgba(156,170,118,0.10),transparent_55%)]">
-    </div>
-
+<footer class="nebula-bg relative overflow-hidden text-neutral-300">
     <div class="container-app relative py-16">
         <div class="grid gap-12 md:grid-cols-3">
             <x-reveal>

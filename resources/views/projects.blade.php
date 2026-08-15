@@ -86,8 +86,8 @@
 @section('content')
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="{{ __('Projects') }}"
-                subtitle="{{ __("A selection of platforms and systems I've designed and built throughout my career") }}" />
+            <x-section-heading :title="__('Projects')"
+                :subtitle="__("A selection of platforms and systems I've designed and built throughout my career")" />
 
             <div x-data="{ filter: 'all' }">
                 <div class="flex flex-wrap justify-center gap-2 mb-10">

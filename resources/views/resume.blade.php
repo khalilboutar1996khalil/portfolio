@@ -49,8 +49,8 @@
 @section('content')
     <section class="py-20">
         <div class="container-app">
-            <x-section-heading eyebrow="{{ __("Where I've been") }}" title="{{ __('Resume') }}"
-                subtitle="{{ __("Here's a summary of my professional experience and education") }}" />
+            <x-section-heading :eyebrow="__("Where I've been")" :title="__('Resume')"
+                :subtitle="__("Here's a summary of my professional experience and education")" />
 
             <x-reveal class="flex flex-wrap items-center justify-center gap-4 mb-16">
                 <a href="{{ asset('cv/cv_mohamed_khalil_boutar_en.pdf') }}" download target="_blank" class="btn-primary">

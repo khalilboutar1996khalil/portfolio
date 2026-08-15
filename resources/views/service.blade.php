@@ -17,7 +17,7 @@
 @section('content')
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="{{ __('Services') }}" subtitle="{{ __('Here are the main services I provide as a Software Engineer') }}" />
+            <x-section-heading :title="__('Services')" :subtitle="__('Here are the main services I provide as a Software Engineer')" />
 
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($services as $s)

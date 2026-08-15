@@ -6,7 +6,7 @@
 @section('content')
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="{{ __('Contact') }}" subtitle="{{ __('Feel free to contact me for any questions or projects.') }}" />
+            <x-section-heading :title="__('Contact')" :subtitle="__('Feel free to contact me for any questions or projects.')" />
 
             <div class="grid lg:grid-cols-5 gap-12">
 
