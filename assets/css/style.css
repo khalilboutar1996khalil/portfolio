@@ -601,3 +601,7 @@ html.dark .icon-badge-sm { background: rgba(35,58,40,.4); color: var(--color-acc
   .form-row-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 }
 
+@media (min-width: 640px) {
+  .sm-w-auto { width: auto; }
+}
+

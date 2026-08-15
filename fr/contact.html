@@ -178,9 +178,8 @@
                                     <label for="message-field" class="form-field">Message</label>
                                     <textarea name="message" id="message-field" rows="6" required class="form-input"></textarea>
                                 </div>
-                                <button type="submit" :disabled="sending" class="btn-primary w-full">
-                                    <span x-show="!sending">Envoyer</span>
-                                    <span x-show="sending" x-cloak>Envoi en cours&hellip;</span>
+                                <button type="submit" :disabled="sending" class="btn-primary w-full sm-w-auto">
+                            Envoyer
                                 </button>
                             </form>
 
