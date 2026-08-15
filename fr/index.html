@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <title>À propos &mdash; Mohamed Khalil Boutar</title>
+    <meta name="description" content="Mohamed Khalil Boutar — Ingénieur logiciel avec 3 ans d'expérience dans la création de plateformes web avec Laravel et Angular. Compétences, langues et parcours professionnel.">
+    <link rel="canonical" href="/fr/">
+    <link rel="alternate" hreflang="en" href="/en/">
+    <link rel="alternate" hreflang="fr" href="/fr/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mohamed Khalil Boutar">
+    <meta property="og:title" content="À propos — Mohamed Khalil Boutar">
+    <meta property="og:description" content="Mohamed Khalil Boutar — Ingénieur logiciel avec 3 ans d'expérience dans la création de plateformes web avec Laravel et Angular. Compétences, langues et parcours professionnel.">
+    <meta property="og:url" content="/fr/">
+    <meta property="og:image" content="/img/profile-img.jpg">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À propos — Mohamed Khalil Boutar">
+    <meta name="twitter:description" content="Mohamed Khalil Boutar — Ingénieur logiciel avec 3 ans d'expérience dans la création de plateformes web avec Laravel et Angular. Compétences, langues et parcours professionnel.">
+    <meta name="twitter:image" content="/img/profile-img.jpg">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="page-loader">
+        <div class="flex flex-col items-center gap-4">
+            <div class="loader-ring">
+                <span class="track"></span>
+                <span class="spin"></span>
+                <i class="bi bi-code-slash text-xl text-accent"></i>
+            </div>
+            <span class="text-xs font-medium uppercase tracking-wide text-muted">Chargement&hellip;</span>
+        </div>
+    </div>
+
+    <header class="site-header" x-data="{ open: false, dark: document.documentElement.classList.contains('dark') }"
+        x-init="$watch('dark', value => { document.documentElement.classList.toggle('dark', value); localStorage.setItem('theme', value ? 'dark' : 'light') })">
+        <div class="container-app bar">
+            <a href="./index.html" class="flex items-center gap-2"></a>
+
+            <nav class="main-nav">
+                <a href="./index.html" class="nav-link active">À propos</a>
+                <a href="./projects.html" class="nav-link">Projets</a>
+                <a href="./resume.html" class="nav-link">CV</a>
+                <a href="./service.html" class="nav-link">Services</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="socials">
+                    <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+                </div>
+                <a href="../en/index.html" class="theme-toggle lang-switch" aria-label="Changer de langue">EN</a>
+                <button type="button" @click="dark = !dark" class="theme-toggle" aria-label="Basculer le mode sombre">
+                    <i class="bi bi-moon-stars" x-show="!dark"></i>
+                    <i class="bi bi-sun" x-show="dark" x-cloak></i>
+                </button>
+            </div>
+
+            <div class="mobile-actions">
+                <a href="../en/index.html" class="theme-toggle lang-switch" aria-label="Changer de langue">EN</a>
+                <button type="button" @click="dark = !dark" class="theme-toggle" aria-label="Basculer le mode sombre">
+                    <i class="bi bi-moon-stars" x-show="!dark"></i>
+                    <i class="bi bi-sun" x-show="dark" x-cloak></i>
+                </button>
+                <button @click="open = !open" class="theme-toggle" aria-label="Ouvrir/fermer le menu" :aria-expanded="open">
+                    <i class="bi bi-list text-2xl" x-show="!open"></i>
+                    <i class="bi bi-x text-2xl" x-show="open" x-cloak></i>
+                </button>
+            </div>
+        </div>
+
+        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" @click.outside="open = false"
+            class="mobile-panel">
+            <nav class="container-app">
+                <a href="./index.html" @click="open = false" class="mobile-link active">À propos</a>
+                <a href="./projects.html" @click="open = false" class="mobile-link">Projets</a>
+                <a href="./resume.html" @click="open = false" class="mobile-link">CV</a>
+                <a href="./service.html" @click="open = false" class="mobile-link">Services</a>
+                <a href="./contact.html" @click="open = false" class="mobile-link">Contact</a>
+            </nav>
+            <div class="container-app mobile-socials">
+                <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">Faites connaissance</p>
+                    <h2>À propos</h2>
+                </div>
+
+                <div class="grid about-grid gap-12 items-start">
+                    <div class="relative max-w-sm mx-auto reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="position:relative">
+                        <img src="/img/profile-img.jpg" alt="Mohamed Khalil Boutar" class="rounded-2xl w-full" style="box-shadow:0 20px 25px -5px rgba(0,0,0,.15)">
+                    </div>
+
+                    <div>
+                        <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                            <p class="section-eyebrow mb-2">Bonjour, je suis Mohamed Khalil Boutar</p>
+                            <h3>Testeur QA &amp; <span class="text-accent">Développeur Web</span>.</h3>
+                            <p class="mt-3 max-w-xl text-muted">
+                                Je suis ingénieur logiciel avec 3 ans d'expérience en développement web. Je me spécialise dans la création d'applications modernes avec Laravel et Angular.
+                            </p>
+                        </div>
+
+                        <dl class="mt-8 info-grid gap-4 text-sm">
+                            <div class="flex items-center gap-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                                <span class="icon-badge-sm"><i class="bi bi-telephone"></i></span>
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-muted">Téléphone</dt>
+                                    <dd class="font-medium">+216 53117158</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:220ms">
+                                <span class="icon-badge-sm"><i class="bi bi-mortarboard"></i></span>
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-muted">Diplôme</dt>
+                                    <dd class="font-medium">Ingénieur</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:280ms">
+                                <span class="icon-badge-sm"><i class="bi bi-geo-alt"></i></span>
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-muted">Ville</dt>
+                                    <dd class="font-medium">Ariana, Tunisie</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:340ms">
+                                <span class="icon-badge-sm"><i class="bi bi-envelope"></i></span>
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-muted">Email</dt>
+                                    <dd class="font-medium">khalilboutar@gmail.com</dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 section-tint">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <h2>Compétences</h2>
+                </div>
+
+                <div class="grid grid-2 max-w-4xl mx-auto" style="column-gap:3rem; row-gap:1.25rem">
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 100">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/></svg></span> HTML</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:40ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 100">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"/><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"/></svg></span> CSS</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 75">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"/><path fill="#323330" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg></span> JavaScript</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:120ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 50">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill-rule="evenodd" clip-rule="evenodd" fill="#1384C8" d="M82.108 78.432c.479-1.232 1.022-2.445 1.427-3.701 2.288-7.097 4.554-14.2 6.805-21.309.865-2.731 1.813-5.42 3.515-7.767 2.692-3.709 6.442-5.652 10.88-6.331a37.456 37.456 0 015.28-.406c5.267-.05 10.536-.015 15.804-.01.28 0 .56.029.957.052-.129.304-.199.525-.311.724-1.955 3.494-3.872 7.009-5.885 10.468-3.505 6.022-7.016 12.042-10.631 17.998-2.319 3.819-4.834 7.52-7.687 10.974-2.105 2.548-4.321 4.984-7.146 6.77-1.925 1.217-3.981 1.929-6.315 1.917-8.278-.045-16.556-.012-24.834-.024-2.461-.004-4.568-.941-6.356-2.603-2.563-2.381-4.093-5.412-5.345-8.608-2.284-5.835-3.563-11.951-5.031-18.014-.688-2.838-1.47-5.654-2.215-8.478-.048-.183-.142-.354-.25-.617l-.577.542c-3.228 3.207-6.071 6.741-8.615 10.498-.693 1.024-.926 2.374-1.313 3.591-1.424 4.47-2.722 8.983-4.264 13.411-1.477 4.242-4.125 7.616-8.264 9.61a18.565 18.565 0 01-7.689 1.855c-3.98.088-7.962.098-11.943.134-.952.009-.996-.069-.748-.99 1.707-6.338 3.87-12.514 6.58-18.492 2.794-6.167 6.085-12.048 10.231-17.419 2.823-3.657 5.941-7.031 9.843-9.582 1.979-1.293 4.083-2.315 6.477-2.584.394-.045.793-.073 1.189-.073 8.478-.004 16.956.082 25.433-.039 4.547-.065 7.839 1.855 10.304 5.515 1.533 2.276 2.63 4.761 3.553 7.328 1.861 5.178 3.018 10.547 4.325 15.878.748 3.051 1.581 6.081 2.379 9.12.06.228.157.446.238.668l.199-.006z"/></svg></span> .NET</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 80">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><i class="bi bi-database text-accent"></i> SQL</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:200ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 80">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill-rule="evenodd" clip-rule="evenodd" d="M113.823 104.595c-1.795-1.478-3.629-2.921-5.308-4.525-1.87-1.785-3.045-3.944-2.789-6.678.147-1.573-.216-2.926-2.113-3.452.446-1.154.864-1.928 1.033-2.753.188-.92.178-1.887.204-2.834.264-9.96-3.334-18.691-8.663-26.835-2.454-3.748-5.017-7.429-7.633-11.066-4.092-5.688-5.559-12.078-5.633-18.981a47.564 47.564 0 00-1.081-9.475C80.527 11.956 77.291 7.233 71.422 4.7c-4.497-1.942-9.152-2.327-13.901-1.084-6.901 1.805-11.074 6.934-10.996 14.088.074 6.885.417 13.779.922 20.648.288 3.893-.312 7.252-2.895 10.34-2.484 2.969-4.706 6.172-6.858 9.397-1.229 1.844-2.317 3.853-3.077 5.931-2.07 5.663-3.973 11.373-7.276 16.5-1.224 1.9-1.363 4.026-.494 6.199.225.563.363 1.429.089 1.882-2.354 3.907-5.011 7.345-10.066 8.095-3.976.591-4.172 1.314-4.051 5.413.1 3.337.061 6.705-.28 10.021-.363 3.555.008 4.521 3.442 5.373 7.924 1.968 15.913 3.647 23.492 6.854 3.227 1.365 6.465.891 9.064-1.763 2.713-2.771 6.141-3.855 9.844-3.859 6.285-.005 12.572.298 18.86.369 1.702.02 2.679.653 3.364 2.199.84 1.893 2.26 3.284 4.445 3.526 4.193.462 8.013-.16 11.19-3.359 3.918-3.948 8.436-7.066 13.615-9.227 1.482-.619 2.878-1.592 4.103-2.648 2.231-1.922 2.113-3.146-.135-5zM62.426 24.12c.758-2.601 2.537-4.289 5.243-4.801 2.276-.43 4.203.688 5.639 3.246 1.546 2.758 2.054 5.64.734 8.658-1.083 2.474-1.591 2.707-4.123 1.868-.474-.157-.937-.343-1.777-.652.708-.594 1.154-1.035 1.664-1.382 1.134-.772 1.452-1.858 1.346-3.148-.139-1.694-1.471-3.194-2.837-3.175-1.225.017-2.262 1.167-2.4 2.915-.086 1.089.095 2.199.173 3.589-3.446-1.023-4.711-3.525-3.662-7.118zm-12.75-2.251c1.274-1.928 3.197-2.314 5.101-1.024 2.029 1.376 3.547 5.256 2.763 7.576-.285.844-1.127 1.5-1.716 2.241l-.604-.374c-.23-1.253-.276-2.585-.757-3.733-.304-.728-1.257-1.184-1.919-1.762-.622.739-1.693 1.443-1.757 2.228-.088 1.084.477 2.28.969 3.331.311.661 1.001 1.145 1.713 1.916l-1.922 1.51c-3.018-2.7-3.915-8.82-1.871-11.909zM87.34 86.075c-.203 2.604-.5 2.713-3.118 3.098-1.859.272-2.359.756-2.453 2.964a101.744 101.744 0 00-.012 7.753c.061 1.77-.537 3.158-1.755 4.393-6.764 6.856-14.845 10.105-24.512 8.926-4.17-.509-6.896-3.047-9.097-6.639.98-.363 1.705-.607 2.412-.894 3.122-1.27 3.706-3.955 1.213-6.277-1.884-1.757-3.986-3.283-6.007-4.892-1.954-1.555-3.934-3.078-5.891-4.629-1.668-1.323-2.305-3.028-2.345-5.188-.094-5.182.972-10.03 3.138-14.747 1.932-4.209 3.429-8.617 5.239-12.885.935-2.202 1.906-4.455 3.278-6.388 1.319-1.854 2.134-3.669 1.988-5.94-.084-1.276-.016-2.562-.016-3.843l.707-.352c1.141.985 2.302 1.949 3.423 2.959 4.045 3.646 7.892 3.813 12.319.67 1.888-1.341 3.93-2.47 5.927-3.652.497-.294 1.092-.423 1.934-.738 2.151 5.066 4.262 10.033 6.375 15 1.072 2.524 1.932 5.167 3.264 7.547 2.671 4.775 4.092 9.813 4.07 15.272-.012 2.83.137 5.67-.081 8.482z"/></svg></span> Linux</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 90">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#f0513f" d="M27.271.11c-.2.078-5.82 3.28-12.487 7.112-8.078 4.644-12.227 7.09-12.449 7.32-.19.225-.34.482-.438.76-.167.564-.179 82.985-.01 83.578.061.23.26.568.44.754.436.46 48.664 28.19 49.25 28.324.272.065.577.054.88-.03.658-.165 48.76-27.834 49.188-28.286.175-.195.375-.532.44-.761.084-.273.115-4.58.115-13.655v-13.26l11.726-6.735c11.056-6.357 11.733-6.755 12.017-7.191l.29-.47V43.287c0-15.548.03-14.673-.585-15.235-.165-.146-5.798-3.433-12.53-7.31L100.89 13.71h-1.359l-11.963 6.87c-6.586 3.788-12.184 7.027-12.457 7.203-.272.18-.597.512-.73.753l-.242.417-.054 13.455-.048 13.46-9.879 5.69c-5.434 3.124-9.957 5.71-10.053 5.734-.175.049-.187-1.232-.187-25.966V15.293l-.26-.447c-.326-.545 1.136.324-13.544-8.114C27.803-.348 28.098-.2 27.27.11zm11.317 10.307c5.15 2.955 9.364 5.4 9.364 5.43 0 .031-4.516 2.641-10.035 5.813l-10.041 5.765-10.023-5.764c-5.507-3.173-10.02-5.783-10.02-5.814 0-.03 4.505-2.64 10.013-5.805l9.999-5.752.69.376c3.357 1.907 6.708 3.824 10.053 5.751zm71.668 13.261c5.422 3.122 9.908 5.702 9.95 5.744.114.103-19.774 11.535-20.046 11.523-.272-.008-19.915-11.335-19.907-11.473.01-.157 19.773-11.527 19.973-11.496.091.022 4.607 2.59 10.03 5.702zM16.3 25.328l9.558 5.503.055 27.247.05 27.252.233.368c.122.194.352.459.52.581.158.115 5.477 3.146 11.818 6.724l11.52 6.506v11.527c0 6.326-.043 11.516-.097 11.516-.041 0-10-5.699-22.124-12.676L5.793 97.201l-.03-38.966-.019-38.954.49.271c.283.15 4.807 2.748 10.065 5.775zm33.754 19.18v25.109l-.387.253c-.525.332-19.667 11.335-19.732 11.335-.03 0-.054-11.336-.054-25.193l.012-25.182 10-5.752c5.499-3.165 10.034-5.733 10.088-5.714.039.024.073 11.34.073 25.144zm38.15-5.775 10.023 5.763V55.92c0 10.838-.011 11.42-.176 11.357-.107-.041-4.642-2.64-10.083-5.774l-9.91-5.69v-11.42c0-6.287.032-11.424.062-11.424.043 0 4.577 2.592 10.084 5.764zm34.164 5.587c0 6.254-.042 11.412-.084 11.462-.072.115-19.896 11.538-20.022 11.538-.031 0-.062-5.135-.062-11.423v-11.42l10-5.756c5.507-3.16 10.042-5.752 10.084-5.752.053 0 .084 5.105.084 11.351zM95.993 70.933 52.005 96.04 32.056 84.693S76 59.277 76.176 59.343zm2.215 14.827-.034 11.442-22.028 12.676c-12.12 6.976-22.082 12.675-22.132 12.675-.053 0-.095-4.658-.095-11.516V99.51l22.08-12.592c12.132-6.923 22.101-12.59 22.154-12.602.043 0 .062 5.148.054 11.443z"/></svg></span> Laravel</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:280ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 90">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#B3B3B3" d="M63.81 1.026L4.553 21.88l9.363 77.637 49.957 27.457 50.214-27.828 9.36-77.635z"/><path fill="#A6120D" d="M117.536 25.998L63.672 7.629v112.785l45.141-24.983z"/><path fill="#DD1B16" d="M11.201 26.329l8.026 69.434 44.444 24.651V7.627z"/><path fill="#F2F2F2" d="M78.499 67.67l-14.827 6.934H48.044l-7.347 18.374-13.663.254 36.638-81.508L78.499 67.67zm-1.434-3.491L63.77 37.858 52.864 63.726h10.807l13.394.453z"/><path fill="#B3B3B3" d="M63.671 11.724l.098 26.134 12.375 25.888H63.698l-.027 10.841 17.209.017 8.042 18.63 13.074.242z"/></svg></span> Angular JS</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:320ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 70">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M116.452 6.643a59.104 59.104 0 01-6.837 12.136A64.249 64.249 0 0064.205-.026C28.984-.026 0 28.982 0 64.242a64.316 64.316 0 0019.945 46.562l2.368 2.1a64.22 64.22 0 0041.358 15.122c33.487 0 61.637-26.24 64.021-59.683 1.751-16.371-3.051-37.077-11.24-61.7zM29.067 111.17a5.5 5.5 0 01-4.269 2.034c-3.018 0-5.487-2.484-5.487-5.502 0-3.017 2.485-5.501 5.487-5.501 1.25 0 2.485.433 3.452 1.234 2.351 1.9 2.718 5.384.817 7.735zm87.119-19.238c-15.843 21.122-49.68 14.003-71.376 15.02 0 0-3.852.234-7.721.867 0 0 1.45-.617 3.335-1.334 15.226-5.301 22.43-6.335 31.685-11.086 17.427-8.869 34.654-28.274 38.24-48.463-6.637 19.422-26.75 36.11-45.077 42.895-12.557 4.635-35.238 9.136-35.238 9.136l-.917-.484c-15.442-7.518-15.91-40.977 12.157-51.78 12.291-4.735 24.048-2.134 37.323-5.302 14.175-3.367 30.568-14.004 37.238-27.874 7.471 22.19 16.46 56.932.35 78.405z" fill="#77bc1f"/></svg></span> SpringBoot</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:360ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 70">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8zM92.5 14.7c4.1 2.4 5.5 9.8 3.8 20.3-.3 2.1-.8 4.3-1.4 6.6-5.2-1.2-10.7-2-16.5-2.5-3.4-4.8-6.9-9.1-10.4-13 7.4-7.3 14.9-12.3 21-12.3 1.3 0 2.5.3 3.5.9zM81.3 74c-1.8 3.2-3.9 6.4-6.1 9.6-3.7.3-7.4.4-11.2.4-3.9 0-7.6-.1-11.2-.4-2.2-3.2-4.2-6.4-6-9.6-1.9-3.3-3.7-6.7-5.3-10 1.6-3.3 3.4-6.7 5.3-10 1.8-3.2 3.9-6.4 6.1-9.6 3.7-.3 7.4-.4 11.2-.4 3.9 0 7.6.1 11.2.4 2.2 3.2 4.2 6.4 6 9.6 1.9 3.3 3.7 6.7 5.3 10-1.7 3.3-3.4 6.6-5.3 10zm8.3-3.3c1.5 3.5 2.7 6.9 3.8 10.3-3.4.8-7 1.4-10.8 1.9 1.2-1.9 2.5-3.9 3.6-6 1.2-2.1 2.3-4.2 3.4-6.2zM64 97.8c-2.4-2.6-4.7-5.4-6.9-8.3 2.3.1 4.6.2 6.9.2 2.3 0 4.6-.1 6.9-.2-2.2 2.9-4.5 5.7-6.9 8.3zm-18.6-15c-3.8-.5-7.4-1.1-10.8-1.9 1.1-3.3 2.3-6.8 3.8-10.3 1.1 2 2.2 4.1 3.4 6.1 1.2 2.2 2.4 4.1 3.6 6.1zm-7-25.5c-1.5-3.5-2.7-6.9-3.8-10.3 3.4-.8 7-1.4 10.8-1.9-1.2 1.9-2.5 3.9-3.6 6-1.2 2.1-2.3 4.2-3.4 6.2zM64 30.2c2.4 2.6 4.7 5.4 6.9 8.3-2.3-.1-4.6-.2-6.9-.2-2.3 0-4.6.1-6.9.2 2.2-2.9 4.5-5.7 6.9-8.3zm22.2 21l-3.6-6c3.8.5 7.4 1.1 10.8 1.9-1.1 3.3-2.3 6.8-3.8 10.3-1.1-2.1-2.2-4.2-3.4-6.2zM31.7 35c-1.7-10.5-.3-17.9 3.8-20.3 1-.6 2.2-.9 3.5-.9 6 0 13.5 4.9 21 12.3-3.5 3.8-7 8.2-10.4 13-5.8.5-11.3 1.4-16.5 2.5-.6-2.3-1-4.5-1.4-6.6zM7 64c0-4.7 5.7-9.7 15.7-13.4 2-.8 4.2-1.5 6.4-2.1 1.6 5 3.6 10.3 6 15.6-2.4 5.3-4.5 10.5-6 15.5C15.3 75.6 7 69.6 7 64zm28.5 49.3c-4.1-2.4-5.5-9.8-3.8-20.3.3-2.1.8-4.3 1.4-6.6 5.2 1.2 10.7 2 16.5 2.5 3.4 4.8 6.9 9.1 10.4 13-7.4 7.3-14.9 12.3-21 12.3-1.3 0-2.5-.3-3.5-.9zM96.3 93c1.7 10.5.3 17.9-3.8 20.3-1 .6-2.2.9-3.5.9-6 0-13.5-4.9-21-12.3 3.5-3.8 7-8.2 10.4-13 5.8-.5 11.3-1.4 16.5-2.5.6 2.3 1 4.5 1.4 6.6zm9-15.6c-2 .8-4.2 1.5-6.4 2.1-1.6-5-3.6-10.3-6-15.6 2.4-5.3 4.5-10.5 6-15.5 13.8 4 22.1 10 22.1 15.6 0 4.7-5.8 9.7-15.7 13.4z"/></g></svg></span> React JS</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:400ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 40">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><span class="tech-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#3FB6D3" d="M12.3 64.2L76.3 0h39.4L32.1 83.6zM76.3 128h39.4L81.6 93.9l34.1-34.8H76.3L42.2 93.5z"/></svg></span> Flutter</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                    <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:440ms">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = 60">
+                            <div class="flex justify-between text-sm" style="margin-bottom:.375rem">
+                                <span class="flex items-center gap-2 font-medium"><i class="bi bi-bug text-accent"></i> Tests QA</span>
+                                <span class="text-muted" x-text="pct + '%'"></span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" :style="`width: ${pct}%`"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <h2>Langues</h2>
+                    <p class="subtitle">Les langues que je parle et utilise</p>
+                </div>
+
+                <div class="lang-grid gap-6">
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <i class="card-icon bi bi-translate text-2xl text-accent"></i>
+                        <p class="mt-3 font-medium">Arabe</p>
+                        <p class="text-sm text-muted">Natif</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <i class="card-icon bi bi-translate text-2xl text-accent"></i>
+                        <p class="mt-3 font-medium">Français</p>
+                        <p class="text-sm text-muted">Courant</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <i class="card-icon bi bi-translate text-2xl text-accent"></i>
+                        <p class="mt-3 font-medium">Anglais</p>
+                        <p class="text-sm text-muted">Professionnel</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
+                        <i class="card-icon bi bi-translate text-2xl text-accent"></i>
+                        <p class="mt-3 font-medium">Italien</p>
+                        <p class="text-sm text-muted">Intermédiaire</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 section-tint">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">En chiffres</p>
+                    <h2>Chiffres clés</h2>
+                    <p class="subtitle">Les points forts de mon profil</p>
+                </div>
+
+                <div class="grid grid-3 gap-6 max-w-3xl mx-auto">
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-people"></i></div>
+                        <div x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 2) clearInterval(i) }, 500)">
+                            <span class="mt-4 font-bold text-4xl text-accent" style="display:block" x-text="n"></span>
+                            <p class="mt-1 text-sm text-muted">Clients</p>
+                        </div>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:120ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-kanban"></i></div>
+                        <div x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 10) clearInterval(i) }, 100)">
+                            <span class="mt-4 font-bold text-4xl text-accent" style="display:block" x-text="n"></span>
+                            <p class="mt-1 text-sm text-muted">Projets</p>
+                        </div>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-award"></i></div>
+                        <div x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 3) clearInterval(i) }, 333)">
+                            <span class="mt-4 font-bold text-4xl text-accent" style="display:block" x-text="n"></span>
+                            <p class="mt-1 text-sm text-muted">Années d'expérience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="nebula-bg site-footer">
+        <div class="container-app relative">
+            <div class="grid3">
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <div class="footer-icon-badge"><i class="bi bi-code-slash"></i></div>
+                    <p class="mt-4 max-w-sm text-sm text-muted">
+                        Ingénieur logiciel créant des plateformes web fiables, des API et des systèmes métier avec Laravel &amp; Angular.
+                    </p>
+                    <div class="mt-4 flex gap-4 socials">
+                        <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+                    </div>
+                </div>
+
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:100ms">
+                    <div class="footer-icon-badge"><i class="bi bi-compass"></i></div>
+                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Navigation</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="./index.html"><span>À propos</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./projects.html"><span>Projets</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./resume.html"><span>CV</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./service.html"><span>Services</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./contact.html"><span>Contact</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:200ms">
+                    <div class="footer-icon-badge"><i class="bi bi-envelope-open"></i></div>
+                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Coordonnées</h3>
+                    <ul class="footer-contact-list">
+                        <li><span class="icon-badge-sm"><i class="bi bi-envelope"></i></span><a href="mailto:khalilboutar@gmail.com">khalilboutar@gmail.com</a></li>
+                        <li><span class="icon-badge-sm"><i class="bi bi-telephone"></i></span><a href="tel:+21653117158">+216 53117158</a></li>
+                        <li><span class="icon-badge-sm"><i class="bi bi-geo-alt"></i></span>Ariana, Tunisie</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+</body>
+
+</html>

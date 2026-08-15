@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <title>Projects &mdash; Mohamed Khalil Boutar</title>
+    <meta name="description" content="A selection of web platforms, ERP systems and personal projects designed and built by Mohamed Khalil Boutar using Laravel, Angular and modern APIs.">
+    <link rel="canonical" href="/en/projects.html">
+    <link rel="alternate" hreflang="en" href="/en/projects.html">
+    <link rel="alternate" hreflang="fr" href="/fr/projects.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mohamed Khalil Boutar">
+    <meta property="og:title" content="Projects — Mohamed Khalil Boutar">
+    <meta property="og:description" content="A selection of web platforms, ERP systems and personal projects designed and built by Mohamed Khalil Boutar using Laravel, Angular and modern APIs.">
+    <meta property="og:url" content="/en/projects.html">
+    <meta property="og:image" content="/img/profile-img.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects — Mohamed Khalil Boutar">
+    <meta name="twitter:description" content="A selection of web platforms, ERP systems and personal projects designed and built by Mohamed Khalil Boutar using Laravel, Angular and modern APIs.">
+    <meta name="twitter:image" content="/img/profile-img.jpg">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="page-loader">
+        <div class="flex flex-col items-center gap-4">
+            <div class="loader-ring">
+                <span class="track"></span>
+                <span class="spin"></span>
+                <i class="bi bi-code-slash text-xl text-accent"></i>
+            </div>
+            <span class="text-xs font-medium uppercase tracking-wide text-muted">Loading&hellip;</span>
+        </div>
+    </div>
+
+    <header class="site-header" x-data="{ open: false, dark: document.documentElement.classList.contains('dark') }"
+        x-init="$watch('dark', value => { document.documentElement.classList.toggle('dark', value); localStorage.setItem('theme', value ? 'dark' : 'light') })">
+        <div class="container-app bar">
+            <a href="./index.html" class="flex items-center gap-2"></a>
+
+            <nav class="main-nav">
+                <a href="./index.html" class="nav-link">About</a>
+                <a href="./projects.html" class="nav-link active">Projects</a>
+                <a href="./resume.html" class="nav-link">Resume</a>
+                <a href="./service.html" class="nav-link">Services</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="socials">
+                    <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+                </div>
+                <a href="../fr/projects.html" class="theme-toggle lang-switch" aria-label="Switch language">FR</a>
+                <button type="button" @click="dark = !dark" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="bi bi-moon-stars" x-show="!dark"></i>
+                    <i class="bi bi-sun" x-show="dark" x-cloak></i>
+                </button>
+            </div>
+
+            <div class="mobile-actions">
+                <a href="../fr/projects.html" class="theme-toggle lang-switch" aria-label="Switch language">FR</a>
+                <button type="button" @click="dark = !dark" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="bi bi-moon-stars" x-show="!dark"></i>
+                    <i class="bi bi-sun" x-show="dark" x-cloak></i>
+                </button>
+                <button @click="open = !open" class="theme-toggle" aria-label="Toggle menu" :aria-expanded="open">
+                    <i class="bi bi-list text-2xl" x-show="!open"></i>
+                    <i class="bi bi-x text-2xl" x-show="open" x-cloak></i>
+                </button>
+            </div>
+        </div>
+
+        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" @click.outside="open = false"
+            class="mobile-panel">
+            <nav class="container-app">
+                <a href="./index.html" @click="open = false" class="mobile-link">About</a>
+                <a href="./projects.html" @click="open = false" class="mobile-link active">Projects</a>
+                <a href="./resume.html" @click="open = false" class="mobile-link">Resume</a>
+                <a href="./service.html" @click="open = false" class="mobile-link">Services</a>
+                <a href="./contact.html" @click="open = false" class="mobile-link">Contact</a>
+            </nav>
+            <div class="container-app mobile-socials">
+                <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 section-tint">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <h2>Projects</h2>
+                    <p class="subtitle">A selection of platforms and systems I've designed and built throughout my career</p>
+                </div>
+
+                <div x-data="{ filter: 'all' }">
+                    <div class="flex flex-wrap justify-center gap-2 mb-10">
+                        <button @click="filter = 'all'" :class="filter === 'all' ? 'active' : ''" class="filter-pill">All</button>
+                        <button @click="filter = 'web'" :class="filter === 'web' ? 'active' : ''" class="filter-pill">Web Apps</button>
+                        <button @click="filter = 'erp'" :class="filter === 'erp' ? 'active' : ''" class="filter-pill">ERP &amp; Business</button>
+                        <button @click="filter = 'api'" :class="filter === 'api' ? 'active' : ''" class="filter-pill">API &amp; Backend</button>
+                        <button @click="filter = 'personal'" :class="filter === 'personal' ? 'active' : ''" class="filter-pill">Personal Projects</button>
+                    </div>
+
+                    <div class="grid grid-2 gap-6">
+                        <div x-show="filter === 'all' || ['web','api'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:0ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-clipboard-data"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">SOFTWIND &middot; 2022 &ndash; 2024</p>
+                            <h3 class="mt-1 text-lg font-semibold">FM-Inspection</h3>
+                            <p class="mt-2 text-sm text-muted">Web and mobile platform to monitor objectives, KPIs and field inspections, with scheduling, user management and automatic report generation.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">REST API</span>
+                            </div>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','erp'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:80ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-bar-chart-line"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">SOFTWIND &middot; 2022 &ndash; 2024</p>
+                            <h3 class="mt-1 text-lg font-semibold">Dashboard EHC</h3>
+                            <p class="mt-2 text-sm text-muted">Business dashboard managing project classifications, stages and bid templates, with Excel import/export and interactive reporting for decision-making.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">Excel Import/Export</span>
+                            </div>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','api'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:160ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-trophy"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">SOFTWIND &middot; 2022 &ndash; 2024</p>
+                            <h3 class="mt-1 text-lg font-semibold">Tunisian Football Federation (FTF)</h3>
+                            <p class="mt-2 text-sm text-muted">Management system for referees, fields, leagues and match scheduling, including payment handling and Google Maps integration for travel distance calculations.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">Google Maps API</span>
+                            </div>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','erp'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:240ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-diagram-3"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">WELYNE &middot; 2022 &middot; Final Year Project</p>
+                            <h3 class="mt-1 text-lg font-semibold">Modular ERP Platform</h3>
+                            <p class="mt-2 text-sm text-muted">Multi-company ERP with modular architecture: user management, categories, products, invoicing, and an integrated chat/chatbot module.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">Modular Architecture</span>
+                            </div>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['api'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:320ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-hdd-network"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">IB Space &middot; 2024 &ndash; Present</p>
+                            <h3 class="mt-1 text-lg font-semibold">API Gateway &amp; Account Management</h3>
+                            <p class="mt-2 text-sm text-muted">API Gateway handling user account and address management, file uploads and company certificate processing, with asynchronous messaging via RabbitMQ.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">RabbitMQ</span>
+                                <span class="tag-pill">API Gateway</span>
+                            </div>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','personal'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:400ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-airplane"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">Personal Project &middot; 2026</p>
+                            <h3 class="mt-1 text-lg font-semibold">DocVisa Tunisie</h3>
+                            <p class="mt-2 text-sm text-muted">One-page showcase site for a visa application assistance service, with a bilingual (FR/AR, RTL-aware) dossier simulator that generates a summary sent directly via WhatsApp — fully static, no backend.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">JavaScript</span>
+                                <span class="tag-pill">i18n FR/AR</span>
+                                <span class="tag-pill">WhatsApp API</span>
+                            </div>
+                            <a href="https://github.com/khalilboutar1996khalil/site-visa" target="_blank" rel="noopener noreferrer" class="mt-4 flex items-center gap-2 text-sm font-medium text-accent" style="display:inline-flex">
+                                <i class="bi bi-github"></i> View on GitHub
+                            </a>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','erp','personal'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:480ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-shop"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">Personal Project &middot; 2026</p>
+                            <h3 class="mt-1 text-lg font-semibold">Boutique &ndash; Shop Admin Dashboard</h3>
+                            <p class="mt-2 text-sm text-muted">Admin interface for an online shop connected to a Spring Boot API: JWT authentication, a real-time stats dashboard, and full CRUD for products, categories, clients and orders.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">Angular 21</span>
+                                <span class="tag-pill">TypeScript</span>
+                                <span class="tag-pill">JWT Auth</span>
+                            </div>
+                            <a href="https://github.com/khalilboutar1996khalil/boutique-frontend" target="_blank" rel="noopener noreferrer" class="mt-4 flex items-center gap-2 text-sm font-medium text-accent" style="display:inline-flex">
+                                <i class="bi bi-github"></i> View on GitHub
+                            </a>
+                        </div>
+
+                        <div x-show="filter === 'all' || ['web','personal'].includes(filter)" x-transition.opacity
+                            x-intersect.once="$el.classList.remove('reveal-init')"
+                            class="card reveal-init" style="transition-delay:560ms">
+                            <div class="icon-badge card-icon"><i class="bi bi-basket2"></i></div>
+                            <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">Personal Project &middot; 2026</p>
+                            <h3 class="mt-1 text-lg font-semibold">Bakery Showcase &amp; Ordering Site</h3>
+                            <p class="mt-2 text-sm text-muted">Modern website for a bakery to present products and manage orders, giving customers a simple and pleasant online experience.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="tag-pill">JavaScript</span>
+                                <span class="tag-pill">Netlify</span>
+                            </div>
+                            <a href="https://github.com/khalilboutar1996khalil/site-baking" target="_blank" rel="noopener noreferrer" class="mt-4 flex items-center gap-2 text-sm font-medium text-accent" style="display:inline-flex">
+                                <i class="bi bi-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="nebula-bg site-footer">
+        <div class="container-app relative">
+            <div class="grid3">
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <div class="footer-icon-badge"><i class="bi bi-code-slash"></i></div>
+                    <p class="mt-4 max-w-sm text-sm text-muted">
+                        Software Engineer building reliable web platforms, APIs and business systems with Laravel &amp; Angular.
+                    </p>
+                    <div class="mt-4 flex gap-4 socials">
+                        <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"><i class="bi bi-github text-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/mohamed-khalil-boutar-6b8654157/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin text-lg"></i></a>
+                    </div>
+                </div>
+
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:100ms">
+                    <div class="footer-icon-badge"><i class="bi bi-compass"></i></div>
+                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Navigation</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="./index.html"><span>About</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./projects.html"><span>Projects</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./resume.html"><span>Resume</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./service.html"><span>Services</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./contact.html"><span>Contact</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:200ms">
+                    <div class="footer-icon-badge"><i class="bi bi-envelope-open"></i></div>
+                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Get in touch</h3>
+                    <ul class="footer-contact-list">
+                        <li><span class="icon-badge-sm"><i class="bi bi-envelope"></i></span><a href="mailto:khalilboutar@gmail.com">khalilboutar@gmail.com</a></li>
+                        <li><span class="icon-badge-sm"><i class="bi bi-telephone"></i></span><a href="tel:+21653117158">+216 53117158</a></li>
+                        <li><span class="icon-badge-sm"><i class="bi bi-geo-alt"></i></span>Ariana, Tunisia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+</body>
+
+</html>
