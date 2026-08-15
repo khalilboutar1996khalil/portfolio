@@ -64,16 +64,14 @@ function contactForm(options) {
         message,
       ].join('\n');
 
-      window.open(
-        `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-        '_blank',
-        'noopener'
-      );
-
       this.toastType = 'success';
       this.toast = this.messages.success;
-      form.reset();
-      setTimeout(() => (this.toast = null), 4000);
+
+      // Navigate the current tab to WhatsApp instead of window.open(): a new
+      // window/tab opened from inside a framework event handler is routinely
+      // blocked by browser popup blockers (notably Safari) with no error —
+      // a plain location change is never treated as a popup.
+      window.location.href = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     },
   };
 }
