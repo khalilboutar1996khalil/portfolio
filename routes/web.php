@@ -14,10 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('about');})->name('home');
-Route::redirect('/about', '/');
-Route::get('/projects', function () {return view('projects');})->name('projects');
-Route::get('/contact', function () {return view('contact');})->name('contact');
-Route::get('/resume', function () {return view('resume');})->name('resume');
-Route::get('/service', function () {return view('service');})->name('service');
-Route::post('/store/contact', [ContactController::class, 'send'])->name('contact.store');
+Route::get('/', function () {
+    $preferred = request()->getPreferredLanguage(['en', 'fr']);
+    return redirect('/' . ($preferred ?? 'en'));
+});
+
+Route::prefix('{locale}')->where(['locale' => 'en|fr'])->middleware('setlocale')->group(function () {
+    Route::get('/', function () {return view('about');})->name('home');
+    Route::get('/about', function ($locale) {return redirect("/{$locale}");});
+    Route::get('/projects', function () {return view('projects');})->name('projects');
+    Route::get('/contact', function () {return view('contact');})->name('contact');
+    Route::get('/resume', function () {return view('resume');})->name('resume');
+    Route::get('/service', function () {return view('service');})->name('service');
+    Route::post('/store/contact', [ContactController::class, 'send'])->name('contact.store');
+});

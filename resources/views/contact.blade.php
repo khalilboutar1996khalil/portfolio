@@ -1,12 +1,12 @@
 @extends('welcome')
 
-@section('title', 'Contact')
-@section('description', 'Get in touch with Mohamed Khalil Boutar for freelance projects, collaborations, or job opportunities in web development.')
+@section('title', __('Contact'))
+@section('description', __('Get in touch with Mohamed Khalil Boutar for freelance projects, collaborations, or job opportunities in web development.'))
 
 @section('content')
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="Contact" subtitle="Feel free to contact me for any questions or projects." />
+            <x-section-heading title="{{ __('Contact') }}" subtitle="{{ __('Feel free to contact me for any questions or projects.') }}" />
 
             <div class="grid lg:grid-cols-5 gap-12">
 
@@ -14,21 +14,21 @@
                     <div class="flex gap-4">
                         <i class="bi bi-geo-alt text-xl text-accent-600"></i>
                         <div>
-                            <h3 class="font-semibold text-neutral-900 dark:text-white">Address</h3>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Ariana, Tunisia</p>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white">{{ __('Address') }}</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ __('Ariana, Tunisia') }}</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <i class="bi bi-telephone text-xl text-accent-600"></i>
                         <div>
-                            <h3 class="font-semibold text-neutral-900 dark:text-white">Call Us</h3>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white">{{ __('Call Us') }}</h3>
                             <p class="text-sm text-neutral-500 dark:text-neutral-400">+216 53117158</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <i class="bi bi-envelope text-xl text-accent-600"></i>
                         <div>
-                            <h3 class="font-semibold text-neutral-900 dark:text-white">Email Us</h3>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white">{{ __('Email Us') }}</h3>
                             <p class="text-sm text-neutral-500 dark:text-neutral-400">khalilboutar@gmail.com</p>
                         </div>
                     </div>
@@ -54,11 +54,11 @@
                                     });
                                     const data = await res.json();
                                     this.toastType = data.success ? 'success' : 'error';
-                                    this.toast = data.message ?? 'Please check the form and try again.';
+                                    this.toast = data.message ?? @js(__('Please check the form and try again.'));
                                     if (data.success) e.target.reset();
                                 } catch (err) {
                                     this.toastType = 'error';
-                                    this.toast = 'Network error. Please try again.';
+                                    this.toast = @js(__('Network error. Please try again.'));
                                 } finally {
                                     this.sending = false;
                                     setTimeout(() => this.toast = null, 4000);
@@ -68,29 +68,29 @@
                     <form @submit.prevent="submit" class="card space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="name-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Name</label>
+                                <label for="name-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">{{ __('Name') }}</label>
                                 <input type="text" name="name" id="name-field" required
                                     class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                             </div>
                             <div>
-                                <label for="email-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Email</label>
+                                <label for="email-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">{{ __('Email') }}</label>
                                 <input type="email" name="email" id="email-field" required
                                     class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                             </div>
                         </div>
                         <div>
-                            <label for="subject-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Subject</label>
+                            <label for="subject-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">{{ __('Subject') }}</label>
                             <input type="text" name="subject" id="subject-field" required
                                 class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500">
                         </div>
                         <div>
-                            <label for="message-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Message</label>
+                            <label for="message-field" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">{{ __('Message') }}</label>
                             <textarea name="message" id="message-field" rows="6" required
                                 class="w-full rounded-lg border-neutral-300 bg-white text-neutral-900 focus:border-accent-600 focus:ring-accent-600 dark:border-surface-700 dark:bg-surface-900 dark:text-neutral-100 dark:placeholder-neutral-500"></textarea>
                         </div>
                         <button type="submit" :disabled="sending" class="btn-primary w-full sm:w-auto disabled:opacity-60">
-                            <span x-show="!sending">Send</span>
-                            <span x-show="sending" x-cloak>Sending&hellip;</span>
+                            <span x-show="!sending">{{ __('Send') }}</span>
+                            <span x-show="sending" x-cloak>{{ __('Sending…') }}</span>
                         </button>
                     </form>
 

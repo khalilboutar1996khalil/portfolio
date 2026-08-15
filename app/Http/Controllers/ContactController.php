@@ -24,7 +24,7 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Une erreur est survenue lors de l\'envoi du message.'
+                'message' => __('An error occurred while sending your message.')
             ], 500);
         }
 
@@ -36,7 +36,7 @@ class ContactController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Votre message a été envoyé avec succès !'
+            'message' => __('Your message has been sent successfully!')
         ]);
     }
 }

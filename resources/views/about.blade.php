@@ -1,34 +1,34 @@
 @extends('welcome')
 
-@section('title', 'About')
-@section('description', 'Mohamed Khalil Boutar — Software Engineer with 3 years of experience building web platforms with Laravel and Angular. Skills, languages and career highlights.')
+@section('title', __('About'))
+@section('description', __('Mohamed Khalil Boutar — Software Engineer with 3 years of experience building web platforms with Laravel and Angular. Skills, languages and career highlights.'))
 
 @php
     $skills = [
-        ['HTML', 100], ['   ', 100], ['JavaScript', 75], ['.NET', 50], ['SQL', 80], ['Linux', 80],
+        ['HTML', 100], ['CSS', 100], ['JavaScript', 75], ['.NET', 50], ['SQL', 80], ['Linux', 80],
         ['Laravel', 90], ['Angular JS', 90], ['SpringBoot', 70], ['React JS', 70], ['Flutter', 40], ['QA Testing', 60],
     ];
     $languages = [
-        ['Arabic', 'Native'], ['French', 'Fluent'], ['English', 'Professional'], ['Italian', 'Intermediate'],
+        [__('Arabic'), __('Native')], [__('French'), __('Fluent')], [__('English'), __('Professional')], [__('Italian'), __('Intermediate')],
     ];
     $stats = [
-        ['icon' => 'bi-people', 'label' => 'Clients', 'end' => 2],
-        ['icon' => 'bi-kanban', 'label' => 'Projects', 'end' => 10],
-        ['icon' => 'bi-award', 'label' => 'Years of experience', 'end' => 3],
+        ['icon' => 'bi-people', 'label' => __('Clients'), 'end' => 2],
+        ['icon' => 'bi-kanban', 'label' => __('Projects'), 'end' => 10],
+        ['icon' => 'bi-award', 'label' => __('Years of experience'), 'end' => 3],
     ];
 
     $personalInfo = [
-        ['icon' => 'bi-telephone', 'label' => 'Phone', 'value' => '+216 53117158'],
-        ['icon' => 'bi-mortarboard', 'label' => 'Degree', 'value' => 'Engineer'],
-        ['icon' => 'bi-geo-alt', 'label' => 'City', 'value' => 'Ariana, Tunisia'],
-        ['icon' => 'bi-envelope', 'label' => 'Email', 'value' => 'khalilboutar@gmail.com'],
+        ['icon' => 'bi-telephone', 'label' => __('Phone'), 'value' => '+216 53117158'],
+        ['icon' => 'bi-mortarboard', 'label' => __('Degree'), 'value' => __('Engineer')],
+        ['icon' => 'bi-geo-alt', 'label' => __('City'), 'value' => __('Ariana, Tunisia')],
+        ['icon' => 'bi-envelope', 'label' => __('Email'), 'value' => 'khalilboutar@gmail.com'],
     ];
 @endphp
 
 @section('content')
     <section class="py-20">
         <div class="container-app">
-            <x-section-heading eyebrow="Get to know me" title="About" />
+            <x-section-heading eyebrow="{{ __('Get to know me') }}" title="{{ __('About') }}" />
 
             <div class="grid gap-12 md:grid-cols-3 items-start">
                 <x-reveal class="relative mx-auto max-w-xs md:mx-0">
@@ -41,13 +41,12 @@
 
                 <div class="md:col-span-2">
                     <x-reveal :delay="80">
-                        <p class="section-eyebrow mb-2">Hello, I&rsquo;m Mohamed Khalil Boutar</p>
-                        <h3 class="text-2xl md:text-3xl">QA Tester &amp;
-                            <span class="text-accent-600 dark:text-accent-400">Web Developer</span>.
+                        <p class="section-eyebrow mb-2">{{ __("Hello, I'm Mohamed Khalil Boutar") }}</p>
+                        <h3 class="text-2xl md:text-3xl">{{ __('QA Tester &') }}
+                            <span class="text-accent-600 dark:text-accent-400">{{ __('Web Developer') }}</span>.
                         </h3>
                         <p class="mt-3 max-w-xl text-neutral-500 dark:text-neutral-400">
-                            I am a Software Engineer with 3 years of experience in web development. I specialize in
-                            building modern applications using Laravel and Angular.
+                            {{ __('I am a Software Engineer with 3 years of experience in web development. I specialize in building modern applications using Laravel and Angular.') }}
                         </p>
                     </x-reveal>
 
@@ -73,7 +72,7 @@
 
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="Skills" />
+            <x-section-heading title="{{ __('Skills') }}" />
 
             <div class="grid gap-x-12 gap-y-5 md:grid-cols-2 max-w-4xl mx-auto">
                 @foreach ($skills as [$name, $pct])
@@ -96,7 +95,7 @@
 
     <section class="py-20">
         <div class="container-app">
-            <x-section-heading title="Languages" subtitle="Languages I can speak and work with" />
+            <x-section-heading title="{{ __('Languages') }}" subtitle="{{ __('Languages I can speak and work with') }}" />
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @foreach ($languages as [$lang, $level])
@@ -112,7 +111,7 @@
 
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading eyebrow="By the numbers" title="Facts" subtitle="Highlights of my profile" />
+            <x-section-heading eyebrow="{{ __('By the numbers') }}" title="{{ __('Facts') }}" subtitle="{{ __('Highlights of my profile') }}" />
 
             <div class="grid grid-cols-1 gap-6 max-w-3xl mx-auto sm:grid-cols-3">
                 @foreach ($stats as $i => $stat)

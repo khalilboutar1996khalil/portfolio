@@ -1,23 +1,23 @@
 @extends('welcome')
 
-@section('title', 'Services')
-@section('description', 'Web development, mobile apps, API & microservices, ERP solutions and more — services offered by Mohamed Khalil Boutar, Software Engineer.')
+@section('title', __('Services'))
+@section('description', __('Web development, mobile apps, API & microservices, ERP solutions and more — services offered by Mohamed Khalil Boutar, Software Engineer.'))
 
 @php
     $services = [
-        ['icon' => 'bi-laptop', 'title' => 'Web Development', 'desc' => 'Design and develop modern web applications using Laravel and Angular for scalable and high-performing solutions.'],
-        ['icon' => 'bi-phone', 'title' => 'Mobile App Development', 'desc' => 'Build cross-platform mobile applications using Flutter integrated with REST APIs and backend services.'],
-        ['icon' => 'bi-server', 'title' => 'API & Microservices', 'desc' => 'Design and implement APIs, microservices, and message queues (RabbitMQ) to ensure robust and scalable architectures.'],
-        ['icon' => 'bi-gear', 'title' => 'ERP & Business Solutions', 'desc' => 'Develop ERP systems and business management applications for multi-company operations with modular design.'],
-        ['icon' => 'bi-bar-chart', 'title' => 'Data & Reporting', 'desc' => 'Create interactive dashboards, reports, and KPI monitoring tools for business insights and decision making.'],
-        ['icon' => 'bi-shield-lock', 'title' => 'Security & File Management', 'desc' => 'Implement secure file handling, user authentication, and encrypted storage for sensitive data.'],
+        ['icon' => 'bi-laptop', 'title' => __('Web Development'), 'desc' => __('Design and develop modern web applications using Laravel and Angular for scalable and high-performing solutions.')],
+        ['icon' => 'bi-phone', 'title' => __('Mobile App Development'), 'desc' => __('Build cross-platform mobile applications using Flutter integrated with REST APIs and backend services.')],
+        ['icon' => 'bi-server', 'title' => __('API & Microservices'), 'desc' => __('Design and implement APIs, microservices, and message queues (RabbitMQ) to ensure robust and scalable architectures.')],
+        ['icon' => 'bi-gear', 'title' => __('ERP & Business Solutions'), 'desc' => __('Develop ERP systems and business management applications for multi-company operations with modular design.')],
+        ['icon' => 'bi-bar-chart', 'title' => __('Data & Reporting'), 'desc' => __('Create interactive dashboards, reports, and KPI monitoring tools for business insights and decision making.')],
+        ['icon' => 'bi-shield-lock', 'title' => __('Security & File Management'), 'desc' => __('Implement secure file handling, user authentication, and encrypted storage for sensitive data.')],
     ];
 @endphp
 
 @section('content')
     <section class="py-20 section-tint">
         <div class="container-app">
-            <x-section-heading title="Services" subtitle="Here are the main services I provide as a Software Engineer" />
+            <x-section-heading title="{{ __('Services') }}" subtitle="{{ __('Here are the main services I provide as a Software Engineer') }}" />
 
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($services as $s)

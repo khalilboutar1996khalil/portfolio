@@ -9,8 +9,7 @@
                     <i class="bi bi-code-slash"></i>
                 </div>
                 <p class="mt-4 max-w-xs text-sm text-neutral-400">
-                    Software Engineer building reliable web platforms, APIs and business systems with Laravel &amp;
-                    Angular.
+                    {{ __('Software Engineer building reliable web platforms, APIs and business systems with Laravel & Angular.') }}
                 </p>
                 <div class="mt-4 flex gap-4 text-neutral-500">
                     <a href="https://github.com/khalilboutar1996khalil" target="_blank" rel="noopener noreferrer"
@@ -28,9 +27,9 @@
                 <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-xl text-accent-300 dark:text-accent-400">
                     <i class="bi bi-compass"></i>
                 </div>
-                <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide text-white">Navigation</h3>
+                <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide text-white">{{ __('Navigation') }}</h3>
                 <ul class="mt-4 space-y-2 text-sm">
-                    @foreach ([['url' => url('/'), 'label' => 'About'], ['url' => url('projects'), 'label' => 'Projects'], ['url' => url('resume'), 'label' => 'Resume'], ['url' => url('service'), 'label' => 'Services'], ['url' => url('contact'), 'label' => 'Contact']] as $link)
+                    @foreach ([['url' => route('home'), 'label' => __('About')], ['url' => route('projects'), 'label' => __('Projects')], ['url' => route('resume'), 'label' => __('Resume')], ['url' => route('service'), 'label' => __('Services')], ['url' => route('contact'), 'label' => __('Contact')]] as $link)
                         <li>
                             <a href="{{ $link['url'] }}"
                                 class="group inline-flex items-center gap-1.5 text-neutral-400 hover:text-accent-300 dark:hover:text-accent-400 transition-colors">
@@ -47,7 +46,7 @@
                 <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-xl text-accent-300 dark:text-accent-400">
                     <i class="bi bi-envelope-open"></i>
                 </div>
-                <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide text-white">Get in touch</h3>
+                <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide text-white">{{ __('Get in touch') }}</h3>
                 <ul class="mt-4 space-y-3 text-sm text-neutral-400">
                     <li class="flex items-center gap-3">
                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent-300 dark:text-accent-400">
@@ -65,12 +64,11 @@
                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent-300 dark:text-accent-400">
                             <i class="bi bi-geo-alt"></i>
                         </span>
-                        Ariana, Tunisia
+                        {{ __('Ariana, Tunisia') }}
                     </li>
                 </ul>
             </x-reveal>
         </div>
 
-      
     </div>
 </footer>
