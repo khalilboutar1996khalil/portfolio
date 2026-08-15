@@ -151,15 +151,13 @@
 
                     <div class="contact-col-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:100ms">
                         <div x-data="contactForm({
-                                success: 'Votre message a été envoyé avec succès !',
-                                error: 'Une erreur est survenue lors de l\'envoi de votre message.',
-                                network: 'Erreur réseau. Veuillez réessayer.'
+                                messages: {
+                                    success: 'Redirection vers WhatsApp…',
+                                    error: 'Veuillez remplir tous les champs avant d\'envoyer.'
+                                },
+                                labels: { name: 'Nom', email: 'Email', subject: 'Sujet', message: 'Message' }
                             })">
-                            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                                action="./thanks.html" @submit.prevent="submit" class="card space-y-5">
-                                <input type="hidden" name="form-name" value="contact">
-                                <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
-
+                            <form @submit.prevent="submit" class="card space-y-5">
                                 <div class="form-row-2">
                                     <div>
                                         <label for="name-field" class="form-field">Nom</label>
@@ -178,8 +176,8 @@
                                     <label for="message-field" class="form-field">Message</label>
                                     <textarea name="message" id="message-field" rows="6" required class="form-input"></textarea>
                                 </div>
-                                <button type="submit" :disabled="sending" class="btn-primary w-full sm-w-auto">
-                            Envoyer
+                                <button type="submit" class="btn-primary w-full sm-w-auto">
+                                    <i class="bi bi-whatsapp" style="margin-right:.5rem"></i> Envoyer via WhatsApp
                                 </button>
                             </form>
 

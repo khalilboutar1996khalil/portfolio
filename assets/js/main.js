@@ -19,44 +19,61 @@
   }
 })();
 
-// Shared helper for the Netlify Forms AJAX contact submission (used via
+// WhatsApp phone number the contact form sends to (Tunisia country code + local number).
+const CONTACT_WHATSAPP_NUMBER = '21653117158';
+
+// Shared helper for the contact form: builds a WhatsApp message from the
+// submitted fields and opens wa.me with it pre-filled (used via
 // Alpine x-data="contactForm()" on the contact pages).
-function contactForm(messages) {
+function contactForm(options) {
+  const opts = options || {};
   return {
     sending: false,
     toast: null,
     toastType: null,
-    messages: messages || {
-      success: 'Your message has been sent successfully!',
-      error: 'An error occurred while sending your message.',
-      network: 'Network error. Please try again.',
+    messages: opts.messages || {
+      success: 'Redirecting you to WhatsApp…',
+      error: 'Please fill in all fields before sending.',
     },
-    async submit(e) {
-      this.sending = true;
-      try {
-        const form = e.target;
-        const data = new FormData(form);
-        const body = new URLSearchParams(data).toString();
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-        });
-        if (res.ok) {
-          this.toastType = 'success';
-          this.toast = this.messages.success;
-          form.reset();
-        } else {
-          this.toastType = 'error';
-          this.toast = this.messages.error;
-        }
-      } catch (err) {
+    labels: opts.labels || {
+      name: 'Name',
+      email: 'Email',
+      subject: 'Subject',
+      message: 'Message',
+    },
+    submit(e) {
+      const form = e.target;
+      const data = new FormData(form);
+      const name = (data.get('name') || '').trim();
+      const email = (data.get('email') || '').trim();
+      const subject = (data.get('subject') || '').trim();
+      const message = (data.get('message') || '').trim();
+
+      if (!name || !email || !subject || !message) {
         this.toastType = 'error';
-        this.toast = this.messages.network;
-      } finally {
-        this.sending = false;
+        this.toast = this.messages.error;
         setTimeout(() => (this.toast = null), 4000);
+        return;
       }
+
+      const text = [
+        `${this.labels.name}: ${name}`,
+        `${this.labels.email}: ${email}`,
+        `${this.labels.subject}: ${subject}`,
+        '',
+        message,
+      ].join('\n');
+
+      window.open(
+        `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+        '_blank',
+        'noopener'
+      );
+
+      this.toastType = 'success';
+      this.toast = this.messages.success;
+      form.reset();
+      setTimeout(() => (this.toast = null), 4000);
     },
   };
 }
