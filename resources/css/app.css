@@ -60,14 +60,19 @@
 
   .nebula-bg {
     position: relative;
-    background-color: #0b0a1a;
-    background-image:
-      radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.35), transparent 45%),
-      radial-gradient(circle at 85% 25%, rgba(37, 99, 235, 0.3), transparent 50%),
-      radial-gradient(circle at 55% 90%, rgba(190, 24, 172, 0.16), transparent 55%);
+    background-color: #f4f5ee;
+    background-image: linear-gradient(to bottom, #f4f5ee, #ffffff);
   }
 
-  .nebula-bg::before {
+  .dark .nebula-bg {
+    background-color: #0a130f;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(76, 122, 82, 0.4), transparent 45%),
+      radial-gradient(circle at 85% 25%, rgba(116, 148, 89, 0.3), transparent 50%),
+      radial-gradient(circle at 55% 90%, rgba(212, 175, 90, 0.14), transparent 55%);
+  }
+
+  .dark .nebula-bg::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -91,7 +96,7 @@
     animation: nebula-twinkle 5s ease-in-out infinite alternate;
   }
 
-  .nebula-bg::after {
+  .dark .nebula-bg::after {
     content: '';
     position: absolute;
     inset: 0;
