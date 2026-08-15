@@ -57,6 +57,41 @@
 
 <body class="bg-white text-neutral-800 dark:bg-surface-950 dark:text-neutral-200 transition-colors duration-300">
 
+    <div id="page-loader"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-surface-950 transition-opacity duration-500">
+        <div class="flex flex-col items-center gap-4">
+            <div class="relative flex h-16 w-16 items-center justify-center">
+                <span
+                    class="absolute inset-0 rounded-full border-4 border-accent-100 dark:border-surface-800"></span>
+                <span
+                    class="absolute inset-0 animate-spin rounded-full border-4 border-transparent border-t-accent-600 dark:border-t-accent-400"></span>
+                <i class="bi bi-code-slash text-xl text-accent-600 dark:text-accent-400"></i>
+            </div>
+            <span class="text-xs font-medium uppercase tracking-wide text-neutral-400 dark:text-neutral-500">{{ __('Loading') }}&hellip;</span>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var loader = document.getElementById('page-loader');
+            if (!loader) return;
+            document.documentElement.classList.add('overflow-hidden');
+
+            function hideLoader() {
+                loader.classList.add('opacity-0', 'pointer-events-none');
+                document.documentElement.classList.remove('overflow-hidden');
+                setTimeout(function() {
+                    loader.remove();
+                }, 500);
+            }
+
+            if (document.readyState === 'complete') {
+                hideLoader();
+            } else {
+                window.addEventListener('load', hideLoader);
+            }
+        })();
+    </script>
+
     @include('layouts.header')
 
     <main>

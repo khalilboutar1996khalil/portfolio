@@ -21,8 +21,8 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($services as $s)
-                    <x-reveal :delay="$loop->index * 80" class="card">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
+                    <x-reveal :delay="$loop->index * 80" class="card group">
+                        <div class="card-icon flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
                             <i class="bi {{ $s['icon'] }}"></i>
                         </div>
                         <h3 class="mt-4 text-lg font-semibold text-neutral-900 dark:text-white">{{ $s['title'] }}</h3>

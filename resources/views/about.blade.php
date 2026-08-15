@@ -5,8 +5,18 @@
 
 @php
     $skills = [
-        ['HTML', 100], ['CSS', 100], ['JavaScript', 75], ['.NET', 50], ['SQL', 80], ['Linux', 80],
-        ['Laravel', 90], ['Angular JS', 90], ['SpringBoot', 70], ['React JS', 70], ['Flutter', 40], ['QA Testing', 60],
+        ['name' => 'HTML', 'pct' => 100, 'svg' => 'html5'],
+        ['name' => 'CSS', 'pct' => 100, 'svg' => 'css3'],
+        ['name' => 'JavaScript', 'pct' => 75, 'svg' => 'javascript'],
+        ['name' => '.NET', 'pct' => 50, 'svg' => 'dotnet'],
+        ['name' => 'SQL', 'pct' => 80, 'icon' => 'bi bi-database'],
+        ['name' => 'Linux', 'pct' => 80, 'svg' => 'linux'],
+        ['name' => 'Laravel', 'pct' => 90, 'svg' => 'laravel'],
+        ['name' => 'Angular JS', 'pct' => 90, 'svg' => 'angularjs'],
+        ['name' => 'SpringBoot', 'pct' => 70, 'svg' => 'spring'],
+        ['name' => 'React JS', 'pct' => 70, 'svg' => 'react'],
+        ['name' => 'Flutter', 'pct' => 40, 'svg' => 'flutter'],
+        ['name' => 'QA Testing', 'pct' => 60, 'icon' => 'bi bi-bug'],
     ];
     $languages = [
         [__('Arabic'), __('Native')], [__('French'), __('Fluent')], [__('English'), __('Professional')], [__('Italian'), __('Intermediate')],
@@ -75,11 +85,18 @@
             <x-section-heading :title="__('Skills')" />
 
             <div class="grid gap-x-12 gap-y-5 md:grid-cols-2 max-w-4xl mx-auto">
-                @foreach ($skills as [$name, $pct])
+                @foreach ($skills as $skill)
                     <x-reveal :delay="$loop->index * 40">
-                        <div x-data="{ pct: 0 }" x-intersect.once="pct = {{ $pct }}">
+                        <div x-data="{ pct: 0 }" x-intersect.once="pct = {{ $skill['pct'] }}">
                             <div class="flex justify-between text-sm mb-1.5">
-                                <span class="font-medium text-neutral-700 dark:text-neutral-300">{{ $name }}</span>
+                                <span class="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300">
+                                    @isset($skill['svg'])
+                                        <x-tech-icon :name="$skill['svg']" />
+                                    @else
+                                        <i class="{{ $skill['icon'] }} text-base text-accent-600 dark:text-accent-400"></i>
+                                    @endisset
+                                    {{ $skill['name'] }}
+                                </span>
                                 <span class="text-neutral-400 dark:text-neutral-500" x-text="pct + '%'"></span>
                             </div>
                             <div class="h-1.5 rounded-full bg-neutral-200 dark:bg-surface-800">
@@ -99,8 +116,8 @@
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @foreach ($languages as [$lang, $level])
-                    <x-reveal :delay="$loop->index * 80" class="card text-center">
-                        <i class="bi bi-translate text-2xl text-accent-600 dark:text-accent-400"></i>
+                    <x-reveal :delay="$loop->index * 80" class="card group text-center">
+                        <i class="card-icon inline-block bi bi-translate text-2xl text-accent-600 dark:text-accent-400"></i>
                         <p class="mt-3 font-medium text-neutral-900 dark:text-white">{{ $lang }}</p>
                         <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $level }}</p>
                     </x-reveal>
@@ -115,9 +132,9 @@
 
             <div class="grid grid-cols-1 gap-6 max-w-3xl mx-auto sm:grid-cols-3">
                 @foreach ($stats as $i => $stat)
-                    <x-reveal :delay="$i * 120" class="card text-center">
+                    <x-reveal :delay="$i * 120" class="card group text-center">
                         <div
-                            class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-2xl text-accent-600 dark:bg-accent-900/30 dark:text-accent-400">
+                            class="card-icon mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-2xl text-accent-600 dark:bg-accent-900/30 dark:text-accent-400">
                             <i class="bi {{ $stat['icon'] }}"></i>
                         </div>
                         <div x-data="{ n: 0 }"

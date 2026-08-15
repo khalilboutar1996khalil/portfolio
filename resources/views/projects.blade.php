@@ -106,8 +106,8 @@
                             x-transition.opacity
                             x-intersect.once="$el.classList.remove('opacity-0', 'translate-y-4'); $el.classList.add('opacity-100', 'translate-y-0')"
                             style="transition-delay: {{ $loop->index * 80 }}ms"
-                            class="card opacity-0 translate-y-4">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
+                            class="card group opacity-0 translate-y-4">
+                            <div class="card-icon flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 text-2xl dark:bg-accent-900/30 dark:text-accent-400">
                                 <i class="bi {{ $p['icon'] }}"></i>
                             </div>
                             <p class="mt-4 text-xs font-medium uppercase tracking-wide text-neutral-400 dark:text-neutral-500">{!! $p['meta'] !!}</p>
