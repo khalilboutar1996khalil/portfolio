@@ -20,29 +20,8 @@ Portfolio personnel de Mohamed Khalil Boutar, Software Engineer (Laravel & Angul
 - **Animations** : apparition en cascade au scroll, barres de compétences et compteurs animés, effets de survol sur les cartes.
 - **SEO** : meta description par page, Open Graph, Twitter Card, balises `hreflang` pour le référencement bilingue.
 
-## Structure du projet
 
-```
-app/
-  Http/
-    Controllers/ContactController.php   # Traitement du formulaire de contact
-    Middleware/SetLocale.php            # Détection et application de la langue courante
-  Mail/ContactMessageReceived.php       # Email envoyé lors d'un nouveau message
-resources/
-  views/
-    layouts/                           # header.blade.php, footer.blade.php
-    components/                        # button, card, section-heading, nav-link, reveal, theme-toggle
-    errors/404.blade.php               # Page 404 personnalisée
-    about.blade.php                    # Page d'accueil (À propos)
-    projects.blade.php
-    resume.blade.php
-    service.blade.php
-    contact.blade.php
-  css/app.css                          # Palette Tailwind, composants réutilisables
-  js/app.js                            # Alpine.js
-lang/fr.json                           # Traductions françaises (clé = texte anglais)
-routes/web.php                         # Routes, préfixées par {locale}
-```
+
 
 ## Palette & design
 
@@ -76,14 +55,3 @@ Configurer dans `.env` :
 - `DB_*` : connexion MySQL locale
 - `MAIL_*` et `MAIL_ADMIN_ADDRESS` : pour recevoir les notifications du formulaire de contact
 
-## Déploiement (Vercel)
-
-⚠️ Le site utilise Tailwind/Vite, ce qui nécessite que `public/build/` existe sur le serveur déployé. Ce dossier est actuellement **committé dans le repo** (voir `.gitignore`) pour garantir que le déploiement fonctionne sans étape de build supplémentaire côté Vercel.
-
-**Avant de déployer, si vous modifiez du CSS/JS/Blade**, il faut reconstruire les assets et committer le résultat :
-
-```bash
-npm run build
-git add public/build
-git commit -m "Rebuild assets"
-```
