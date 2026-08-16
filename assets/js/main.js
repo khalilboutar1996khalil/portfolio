@@ -19,6 +19,33 @@
   }
 })();
 
+// Scroll-spy: highlight the nav link matching the section currently in view,
+// since clicking a nav item wasn't leaving any visible "current" indicator.
+(function () {
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.nav-link[href^="#"], .mobile-link[href^="#"]');
+  if (!sections.length || !navLinks.length || !('IntersectionObserver' in window)) return;
+
+  function setActive(id) {
+    navLinks.forEach(function (link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+    });
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+  );
+
+  sections.forEach(function (section) {
+    observer.observe(section);
+  });
+})();
+
 // WhatsApp phone number the contact form sends to (Tunisia country code + local number).
 const CONTACT_WHATSAPP_NUMBER = '21653117158';
 

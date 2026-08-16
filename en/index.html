@@ -59,17 +59,13 @@
     <header class="site-header" x-data="{ open: false, dark: document.documentElement.classList.contains('dark') }"
         x-init="$watch('dark', value => { document.documentElement.classList.toggle('dark', value); localStorage.setItem('theme', value ? 'dark' : 'light') })">
         <div class="container-app bar">
-            <a href="#hero" class="brand">
-                <span class="brand-mark">MKB</span>
-                <span>Mohamed Khalil Boutar</span>
-            </a>
+            <a href="#hero" class="brand"></a>
 
             <nav class="main-nav">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#services" class="nav-link">Services</a>
-                <a href="/cv/cv_mohamed_khalil_boutar_en.pdf" download class="nav-link">CV</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
@@ -106,7 +102,6 @@
                 <a href="#skills" @click="open = false" class="mobile-link">Skills</a>
                 <a href="#projects" @click="open = false" class="mobile-link">Projects</a>
                 <a href="#services" @click="open = false" class="mobile-link">Services</a>
-                <a href="/cv/cv_mohamed_khalil_boutar_en.pdf" download class="mobile-link">Download CV</a>
                 <a href="#contact" @click="open = false" class="mobile-link">Contact</a>
             </nav>
             <div class="container-app mobile-socials">
