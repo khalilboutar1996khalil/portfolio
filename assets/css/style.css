@@ -19,16 +19,16 @@
   --color-surface-900: #111827;
   --color-surface-950: #0b1220;
 
-  --color-accent-50: #eef2ff;
-  --color-accent-100: #e0e7ff;
-  --color-accent-200: #c7d2fe;
-  --color-accent-300: #a5b4fc;
-  --color-accent-400: #818cf8;
-  --color-accent-500: #6366f1;
-  --color-accent-600: #4f46e5;
-  --color-accent-700: #4338ca;
-  --color-accent-800: #3730a3;
-  --color-accent-900: #312e81;
+  --color-accent-50: #f4f5ee;
+  --color-accent-100: #e6e9d8;
+  --color-accent-200: #cdd3b3;
+  --color-accent-300: #9caa76;
+  --color-accent-400: #749459;
+  --color-accent-500: #3a6142;
+  --color-accent-600: #163a24;
+  --color-accent-700: #0f2818;
+  --color-accent-800: #0a1c11;
+  --color-accent-900: #06120b;
 
   --container-max: 1152px;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -157,7 +157,7 @@ html.dark .btn-secondary:hover { border-color: var(--color-accent-500); backgrou
 }
 .card:hover {
   transform: translateY(-.375rem) scale(1.015);
-  box-shadow: 0 16px 32px -10px rgba(79,70,229,.22);
+  box-shadow: 0 16px 32px -10px rgba(22,58,36,.22);
   border-color: var(--color-accent-300);
 }
 html.dark .card { border-color: var(--color-surface-700); background: var(--color-surface-900); }
@@ -284,7 +284,7 @@ html.dark .mobile-panel { background: var(--color-surface-950); border-color: va
 html.dark .mobile-panel .mobile-link { color: var(--color-neutral-300); }
 html.dark .mobile-panel .mobile-link:hover { background: var(--color-surface-800); }
 .mobile-panel .mobile-link.active { color: var(--color-accent-600); background: var(--color-accent-50); }
-html.dark .mobile-panel .mobile-link.active { color: var(--color-accent-400); background: rgba(79,70,229,.15); }
+html.dark .mobile-panel .mobile-link.active { color: var(--color-accent-400); background: rgba(58,97,66,.15); }
 
 .mobile-panel .mobile-socials {
   display: flex;
@@ -351,7 +351,7 @@ html.dark .tech-badge { border-color: var(--color-surface-700); background: var(
 
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 
-.hero-photo-wrap { position: relative; max-width: 22rem; margin-inline: auto; }
+.hero-photo-wrap { position: relative; max-width: 18rem; margin-inline: auto; }
 .hero-photo-wrap img {
   width: 100%;
   border-radius: 1.5rem;
@@ -371,7 +371,7 @@ html.dark .hero-photo-wrap img { border-color: var(--color-surface-700); }
   background: var(--color-accent-600);
   color: #fff;
   padding: 1rem 1.25rem;
-  box-shadow: 0 12px 24px -8px rgba(79,70,229,.4);
+  box-shadow: 0 12px 24px -8px rgba(22,58,36,.4);
 }
 html.dark .hero-float-card { background: var(--color-accent-500); }
 .hero-float-card .num { font-size: 1.5rem; font-weight: 800; line-height: 1; }
@@ -428,7 +428,7 @@ html.dark .skill-chip:hover { border-color: var(--color-accent-600); }
   border-radius: .5rem;
   background: var(--color-accent-50);
 }
-html.dark .skill-chip .skill-ico { background: rgba(79,70,229,.15); }
+html.dark .skill-chip .skill-ico { background: rgba(58,97,66,.15); }
 .skill-chip .skill-ico .tech-icon { height: 1.125rem; width: 1.125rem; }
 .skill-chip .skill-ico i { font-size: 1rem; color: var(--color-accent-600); }
 html.dark .skill-chip .skill-ico i { color: var(--color-accent-400); }
@@ -485,7 +485,7 @@ html.dark .timeline::before { background: var(--color-surface-700); }
   border-radius: 9999px;
   background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
   color: #fff;
-  box-shadow: 0 0 0 4px #fdfdfb, 0 6px 14px -4px rgba(79,70,229,.4);
+  box-shadow: 0 0 0 4px #fdfdfb, 0 6px 14px -4px rgba(22,58,36,.4);
   transition: transform .3s ease-out;
 }
 .timeline-item:hover .timeline-badge { transform: scale(1.1); }
@@ -506,7 +506,7 @@ html.dark .form-field { color: var(--color-neutral-300); }
 }
 .form-input:focus { outline: none; border-color: var(--color-accent-600); box-shadow: 0 0 0 3px var(--color-accent-100); }
 html.dark .form-input { border-color: var(--color-surface-700); background: var(--color-surface-800); color: var(--color-neutral-100); }
-html.dark .form-input:focus { box-shadow: 0 0 0 3px rgba(79,70,229,.25); }
+html.dark .form-input:focus { box-shadow: 0 0 0 3px rgba(58,97,66,.25); }
 
 .toast {
   position: fixed;
@@ -587,12 +587,11 @@ footer.site-footer .grid3 { display: grid; gap: 3rem; padding-block: 4rem; }
   align-items: center;
   justify-content: center;
   border-radius: .75rem;
-  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
+  background: var(--color-accent-100);
   font-size: 1.25rem;
-  color: #fff;
-  box-shadow: 0 8px 16px -6px rgba(79,70,229,.4);
+  color: var(--color-accent-700);
 }
-html.dark .footer-icon-badge { background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); box-shadow: 0 8px 16px -6px rgba(0,0,0,.5); }
+html.dark .footer-icon-badge { background: rgba(58,97,66,.2); color: var(--color-accent-400); }
 
 .footer-nav-list { margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; font-size: .875rem; }
 .footer-nav-list a { display: inline-flex; align-items: center; gap: .375rem; color: var(--color-neutral-600); transition: color .15s; }
@@ -618,7 +617,7 @@ html.dark .footer-bottom { border-color: var(--color-surface-800); color: var(--
   background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
   color: #fff;
   font-size: 1.5rem;
-  box-shadow: 0 8px 16px -6px rgba(79,70,229,.45);
+  box-shadow: 0 8px 16px -6px rgba(22,58,36,.45);
   transition: transform .3s ease-out, box-shadow .3s ease-out;
 }
 html.dark .icon-badge { background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); box-shadow: 0 8px 16px -6px rgba(0,0,0,.5); }
@@ -631,10 +630,10 @@ html.dark .icon-badge { background: linear-gradient(135deg, var(--color-accent-4
   align-items: center;
   justify-content: center;
   border-radius: .5rem;
-  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
-  color: #fff;
+  background: var(--color-accent-100);
+  color: var(--color-accent-700);
 }
-html.dark .icon-badge-sm { background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); }
+html.dark .icon-badge-sm { background: rgba(58,97,66,.2); color: var(--color-accent-400); }
 
 /* Tech icon inline SVG sizing */
 .tech-icon { display: inline-flex; height: 1rem; width: 1rem; flex-shrink: 0; }
