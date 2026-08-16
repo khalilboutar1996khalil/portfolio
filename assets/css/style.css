@@ -47,6 +47,7 @@ ul, ol { list-style: none; padding: 0; }
 
 body {
   font-family: var(--font-sans);
+  font-weight: 500;
   background: #fdfdfb;
   color: var(--color-neutral-700);
   transition: background-color .3s, color .3s;
@@ -344,12 +345,23 @@ html.dark .hero .bio { color: var(--color-neutral-400); }
   background: #fdfdfb;
   padding: .375rem .75rem;
   font-size: .8125rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--color-neutral-700);
 }
 html.dark .tech-badge { border-color: var(--color-surface-700); background: var(--color-surface-900); color: var(--color-neutral-300); }
 
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+/* Below the hero-grid's single-column breakpoint, center the text block
+   and its flex rows so the stacked layout reads as balanced, not left-stuck. */
+@media (max-width: 1023.98px) {
+  .hero-grid > div:first-child { text-align: center; }
+  .hero-grid > div:first-child .tech-badges,
+  .hero-grid > div:first-child .hero-ctas,
+  .hero-grid > div:first-child .socials {
+    justify-content: center;
+  }
+}
 
 .hero-photo-wrap { position: relative; max-width: 18rem; margin-inline: auto; }
 .hero-photo-wrap img {
@@ -378,23 +390,13 @@ html.dark .hero-float-card { background: var(--color-accent-500); }
 .hero-float-card .label { font-size: .75rem; opacity: .9; }
 
 /* Stats strip */
-.stats-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  border-radius: 1.25rem;
-  border: 1px solid var(--color-neutral-200);
-  background: #fdfdfb;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgba(15,23,42,.04);
-}
-html.dark .stats-card { border-color: var(--color-surface-700); background: var(--color-surface-900); }
-@media (min-width: 768px) { .stats-card { grid-template-columns: repeat(4, 1fr); } }
-.stats-card .stat { text-align: center; }
-.stats-card .stat .n { font-size: 2rem; font-weight: 800; color: var(--color-accent-600); }
-html.dark .stats-card .stat .n { color: var(--color-accent-400); }
-.stats-card .stat .label { margin-top: .25rem; font-size: .8125rem; color: var(--color-neutral-500); }
-html.dark .stats-card .stat .label { color: var(--color-neutral-400); }
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+.stats-grid .stat { text-align: center; }
+.stats-grid .stat .n { font-size: 2.25rem; font-weight: 800; color: var(--color-accent-600); }
+html.dark .stats-grid .stat .n { color: var(--color-accent-400); }
+.stats-grid .stat .label { margin-top: .375rem; font-size: .8125rem; color: var(--color-neutral-500); }
+html.dark .stats-grid .stat .label { color: var(--color-neutral-400); }
 
 /* Skills tabs + chips */
 .skills-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-bottom: 2.5rem; }
@@ -575,10 +577,24 @@ html.dark .loader-ring span.spin { border-top-color: var(--color-accent-400); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* Footer */
-footer.site-footer { border-top: 1px solid var(--color-neutral-200); background: var(--color-neutral-50); }
-html.dark footer.site-footer { border-color: var(--color-surface-800); background: var(--color-surface-950); }
-footer.site-footer .grid3 { display: grid; gap: 3rem; padding-block: 4rem; }
+footer.site-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-neutral-200);
+  background: radial-gradient(ellipse 90% 75% at 50% 100%, var(--color-accent-50) 0%, #fdfdfb 65%);
+}
+html.dark footer.site-footer {
+  border-color: var(--color-surface-800);
+  background: radial-gradient(ellipse 90% 75% at 50% 100%, rgba(58,97,66,.3) 0%, var(--color-surface-950) 60%);
+}
+footer.site-footer .grid3 { display: grid; gap: 3rem; padding-block: 4rem; position: relative; }
 @media (min-width: 768px) { footer.site-footer .grid3 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767.98px) {
+  footer.site-footer .grid3 { text-align: center; }
+  footer.site-footer .grid3 .footer-icon-badge { margin-inline: auto; }
+  footer.site-footer .grid3 p { margin-inline: auto; }
+  .footer-contact-list li { justify-content: center; }
+}
 
 .footer-icon-badge {
   display: flex;
@@ -590,8 +606,14 @@ footer.site-footer .grid3 { display: grid; gap: 3rem; padding-block: 4rem; }
   background: var(--color-accent-100);
   font-size: 1.25rem;
   color: var(--color-accent-700);
+  animation: footer-glow-pulse 3.5s ease-in-out infinite;
 }
 html.dark .footer-icon-badge { background: rgba(58,97,66,.2); color: var(--color-accent-400); }
+
+@keyframes footer-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(58,97,66,.3); }
+  50% { box-shadow: 0 0 18px 5px rgba(58,97,66,.3); }
+}
 
 .footer-nav-list { margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; font-size: .875rem; }
 .footer-nav-list a { display: inline-flex; align-items: center; gap: .375rem; color: var(--color-neutral-600); transition: color .15s; }

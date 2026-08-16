@@ -128,6 +128,8 @@
                             <span class="tech-badge"><i class="bi bi-code-slash text-accent"></i> Angular</span>
                             <span class="tech-badge"><i class="bi bi-database text-accent"></i> MySQL</span>
                             <span class="tech-badge"><i class="bi bi-hdd-network text-accent"></i> API REST</span>
+                            <span class="tech-badge"><i class="bi bi-leaf text-accent"></i> Spring Boot</span>
+                            <span class="tech-badge"><i class="bi bi-phone text-accent"></i> React Native</span>
                         </div>
 
                         <div class="hero-ctas">
@@ -158,21 +160,25 @@
                     </div>
                 </div>
 
-                <div class="stats-card mt-16 reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:200ms">
-                    <div class="stat">
-                        <div class="n" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 2) clearInterval(i) }, 500)"><span x-text="n"></span>+</div>
+                <div class="stats-grid mt-16">
+                    <div class="card stat reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-people"></i></div>
+                        <div class="n mt-4" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 2) clearInterval(i) }, 500)"><span x-text="n"></span>+</div>
                         <div class="label">Clients</div>
                     </div>
-                    <div class="stat">
-                        <div class="n" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 10) clearInterval(i) }, 100)"><span x-text="n"></span>+</div>
+                    <div class="card stat reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-kanban"></i></div>
+                        <div class="n mt-4" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 10) clearInterval(i) }, 100)"><span x-text="n"></span>+</div>
                         <div class="label">Projets</div>
                     </div>
-                    <div class="stat">
-                        <div class="n" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 3) clearInterval(i) }, 333)"><span x-text="n"></span>+</div>
+                    <div class="card stat reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-award"></i></div>
+                        <div class="n mt-4" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 3) clearInterval(i) }, 333)"><span x-text="n"></span>+</div>
                         <div class="label">Années d'expérience</div>
                     </div>
-                    <div class="stat">
-                        <div class="n" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 14) clearInterval(i) }, 75)"><span x-text="n"></span>+</div>
+                    <div class="card stat reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-cpu"></i></div>
+                        <div class="n mt-4" x-data="{ n: 0 }" x-intersect.once="let i = setInterval(() => { n++; if (n >= 14) clearInterval(i) }, 75)"><span x-text="n"></span>+</div>
                         <div class="label">Technologies</div>
                     </div>
                 </div>
@@ -489,33 +495,33 @@
                 </div>
 
                 <div class="grid grid-3 gap-6">
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-laptop"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-laptop"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">Développement Web</h3>
                         <p class="mt-2 text-sm text-muted">Conception et développement d'applications web modernes avec Laravel et Angular pour des solutions évolutives et performantes.</p>
                     </div>
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-phone"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-phone"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">Développement d'Applications Mobiles</h3>
                         <p class="mt-2 text-sm text-muted">Développement d'applications mobiles multiplateformes avec Flutter, intégrées à des API REST et services backend.</p>
                     </div>
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-server"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-server"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">API &amp; Microservices</h3>
                         <p class="mt-2 text-sm text-muted">Conception et implémentation d'API, microservices et files de messages (RabbitMQ) pour des architectures robustes et évolutives.</p>
                     </div>
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-gear"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:240ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-gear"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">ERP &amp; Solutions Métier</h3>
                         <p class="mt-2 text-sm text-muted">Développement de systèmes ERP et d'applications de gestion pour des opérations multi-entreprises, avec une conception modulaire.</p>
                     </div>
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:320ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-bar-chart"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:320ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-bar-chart"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">Données &amp; Reporting</h3>
                         <p class="mt-2 text-sm text-muted">Création de tableaux de bord interactifs, rapports et outils de suivi de KPI pour l'aide à la décision.</p>
                     </div>
-                    <div class="card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:400ms">
-                        <div class="icon-badge card-icon"><i class="bi bi-shield-lock"></i></div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:400ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-shield-lock"></i></div>
                         <h3 class="mt-4 text-lg font-semibold">Sécurité &amp; Gestion de Fichiers</h3>
                         <p class="mt-2 text-sm text-muted">Mise en place d'une gestion sécurisée des fichiers, d'une authentification utilisateur et d'un stockage chiffré pour les données sensibles.</p>
                     </div>
