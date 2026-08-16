@@ -20,7 +20,7 @@
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -31,13 +31,16 @@
     <header class="site-header" x-data="{ open: false, dark: document.documentElement.classList.contains('dark') }"
         x-init="$watch('dark', value => { document.documentElement.classList.toggle('dark', value); localStorage.setItem('theme', value ? 'dark' : 'light') })">
         <div class="container-app bar">
-            <a href="./index.html" class="flex items-center gap-2"></a>
+            <a href="./index.html" class="brand">
+                <span class="brand-mark">MKB</span>
+                <span>Mohamed Khalil Boutar</span>
+            </a>
             <nav class="main-nav">
-                <a href="./index.html" class="nav-link">About</a>
-                <a href="./projects.html" class="nav-link">Projects</a>
-                <a href="./resume.html" class="nav-link">Resume</a>
-                <a href="./service.html" class="nav-link">Services</a>
-                <a href="./contact.html" class="nav-link">Contact</a>
+                <a href="./index.html#about" class="nav-link">About</a>
+                <a href="./index.html#skills" class="nav-link">Skills</a>
+                <a href="./index.html#projects" class="nav-link">Projects</a>
+                <a href="./index.html#services" class="nav-link">Services</a>
+                <a href="./index.html#contact" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
                 <div class="socials">
@@ -66,11 +69,11 @@
             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" @click.outside="open = false"
             class="mobile-panel">
             <nav class="container-app">
-                <a href="./index.html" @click="open = false" class="mobile-link">About</a>
-                <a href="./projects.html" @click="open = false" class="mobile-link">Projects</a>
-                <a href="./resume.html" @click="open = false" class="mobile-link">Resume</a>
-                <a href="./service.html" @click="open = false" class="mobile-link">Services</a>
-                <a href="./contact.html" @click="open = false" class="mobile-link">Contact</a>
+                <a href="./index.html#about" @click="open = false" class="mobile-link">About</a>
+                <a href="./index.html#skills" @click="open = false" class="mobile-link">Skills</a>
+                <a href="./index.html#projects" @click="open = false" class="mobile-link">Projects</a>
+                <a href="./index.html#services" @click="open = false" class="mobile-link">Services</a>
+                <a href="./index.html#contact" @click="open = false" class="mobile-link">Contact</a>
             </nav>
         </div>
     </header>
@@ -86,14 +89,14 @@
                 </p>
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
                     <a href="./index.html" class="btn-primary">Back to Home</a>
-                    <a href="./contact.html" class="btn-secondary">Contact Me</a>
+                    <a href="./index.html#contact" class="btn-secondary">Contact Me</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="nebula-bg site-footer">
-        <div class="container-app relative">
+    <footer class="site-footer">
+        <div class="container-app">
             <div class="grid3">
                 <div>
                     <div class="footer-icon-badge"><i class="bi bi-code-slash"></i></div>
@@ -102,19 +105,17 @@
                     </p>
                 </div>
                 <div>
-                    <div class="footer-icon-badge"><i class="bi bi-compass"></i></div>
-                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Navigation</h3>
+                    <h3 class="text-sm font-semibold uppercase tracking-wide">Navigation</h3>
                     <ul class="footer-nav-list">
-                        <li><a href="./index.html"><span>About</span><i class="bi bi-arrow-right arrow"></i></a></li>
-                        <li><a href="./projects.html"><span>Projects</span><i class="bi bi-arrow-right arrow"></i></a></li>
-                        <li><a href="./resume.html"><span>Resume</span><i class="bi bi-arrow-right arrow"></i></a></li>
-                        <li><a href="./service.html"><span>Services</span><i class="bi bi-arrow-right arrow"></i></a></li>
-                        <li><a href="./contact.html"><span>Contact</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./index.html#about"><span>About</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./index.html#skills"><span>Skills</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./index.html#projects"><span>Projects</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./index.html#services"><span>Services</span><i class="bi bi-arrow-right arrow"></i></a></li>
+                        <li><a href="./index.html#contact"><span>Contact</span><i class="bi bi-arrow-right arrow"></i></a></li>
                     </ul>
                 </div>
                 <div>
-                    <div class="footer-icon-badge"><i class="bi bi-envelope-open"></i></div>
-                    <h3 class="mt-4 text-sm font-semibold uppercase tracking-wide">Get in touch</h3>
+                    <h3 class="text-sm font-semibold uppercase tracking-wide">Get in touch</h3>
                     <ul class="footer-contact-list">
                         <li><span class="icon-badge-sm"><i class="bi bi-envelope"></i></span><a href="mailto:khalilboutar@gmail.com">khalilboutar@gmail.com</a></li>
                         <li><span class="icon-badge-sm"><i class="bi bi-telephone"></i></span><a href="tel:+21653117158">+216 53117158</a></li>
@@ -122,6 +123,7 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-bottom">&copy; 2026 Mohamed Khalil Boutar. All rights reserved.</div>
         </div>
     </footer>
 
