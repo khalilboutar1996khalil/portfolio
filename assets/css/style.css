@@ -332,8 +332,8 @@ html.dark .hero-badge { border-color: var(--color-surface-700); background: var(
 .hero .role { margin-top: .75rem; font-size: 1.25rem; font-weight: 600; color: var(--color-accent-600); }
 html.dark .hero .role { color: var(--color-accent-400); }
 
-.hero .bio { margin-top: 1.25rem; max-width: 34rem; color: var(--color-neutral-500); }
-html.dark .hero .bio { color: var(--color-neutral-400); }
+.hero .bio { margin-top: 1.25rem; max-width: 34rem; color: var(--color-neutral-900); font-weight: 700; }
+html.dark .hero .bio { color: var(--color-neutral-100); }
 
 .tech-badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
 .tech-badge {
@@ -460,6 +460,18 @@ html.dark .filter-pill.active { background: var(--color-accent-500); border-colo
   color: var(--color-neutral-600);
 }
 html.dark .tag-pill { background: var(--color-surface-800); color: var(--color-neutral-300); }
+
+/* Education & Languages: three balanced panels instead of one tall
+   Education+Certifications column next to a short Languages column. */
+.edu-grid { display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 1024px) { .edu-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.edu-panel { display: flex; flex-direction: column; }
+.edu-panel-head { display: flex; align-items: center; gap: .875rem; margin-bottom: 1.75rem; }
+.edu-panel-head h3 { margin: 0; font-size: 1.0625rem; }
+
+.lang-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.lang-list li { display: flex; align-items: center; gap: .875rem; }
 
 /* Timeline */
 .timeline { position: relative; }
