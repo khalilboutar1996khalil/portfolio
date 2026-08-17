@@ -46,6 +46,17 @@ Les couleurs et le design system sont centralisés dans `assets/css/style.css` (
 
 Il n'y a pas de système de templating : chaque page HTML est autonome. Pour changer un texte, éditer directement le fichier concerné dans `en/` et son équivalent dans `fr/`.
 
+## ⚠️ Important : après chaque modification de `style.css` ou `main.js`
+
+`assets/css/style.css` et `assets/js/main.js` sont référencés avec un suffixe de version (`?v=1`) dans toutes les pages, par exemple :
+
+```html
+<link rel="stylesheet" href="../assets/css/style.css?v=1">
+<script src="../assets/js/main.js?v=1" defer></script>
+```
+
+**Chaque fois que l'un de ces deux fichiers est modifié, il faut incrémenter ce numéro (`?v=1` → `?v=2`, etc.) dans TOUTES les pages qui le référencent** (`en/index.html`, `fr/index.html`, `en/404.html`, `fr/404.html`, `404.html` à la racine). Sans ça, les navigateurs (et le cache de Netlify) peuvent continuer à afficher l'ancienne version pendant des heures/jours après un déploiement, même après un rechargement normal de la page — c'est exactement ce qui a causé la confusion "le site déployé ne ressemble pas à la version locale" pendant le développement de ce projet.
+
 ## Déploiement sur Netlify
 
 1. Connecter le repo GitHub à Netlify.
