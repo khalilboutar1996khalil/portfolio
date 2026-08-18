@@ -43,7 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/style.css?v=1">
+    <link rel="stylesheet" href="../assets/css/style.css?v=3">
 </head>
 
 <body>
@@ -418,11 +418,11 @@
                             <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">SOFTWIND &middot;
                                 2022 &ndash; 2024</p>
                             <h3 class="mt-1 text-lg font-semibold">FM-Inspection</h3>
-                            <p class="mt-2 text-sm text-muted">Web and mobile platform to monitor objectives, KPIs and
+                            <p class="mt-2 text-sm text-muted">Laravel backend exposing a REST API and a Flutter mobile app to monitor objectives, KPIs and
                                 field inspections, with scheduling, user management and automatic report generation.</p>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 <span class="tag-pill">Laravel</span>
-                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">Flutter</span>
                                 <span class="tag-pill">REST API</span>
                             </div>
                         </div>
@@ -565,6 +565,35 @@
             </div>
         </section>
 
+        <!-- Case Study -->
+        <section id="case-study" class="py-20 section-tint">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">Project spotlight</p>
+                    <h2>Case Study &mdash; FM-Inspection</h2>
+                    <p class="subtitle">How I turned scattered inspection tracking into one centralized platform for SOFTWIND</p>
+                </div>
+
+                <div class="grid grid-3 gap-6">
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-exclamation-triangle"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">The problem</h3>
+                        <p class="mt-2 text-sm text-muted">Field inspections and KPI tracking relied on scattered tools (Excel, paper), making data consolidation and report generation slow and error-prone.</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-tools"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">The solution</h3>
+                        <p class="mt-2 text-sm text-muted">Designed and built FM-Inspection: a Laravel backend exposing a REST API, consumed by a Flutter mobile app, with inspection scheduling, user and role management, and automatic report generation.</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">The result</h3>
+                        <p class="mt-2 text-sm text-muted">A single place to track goals, KPIs and inspections in real time, with reports generated automatically instead of a manual, fragmented process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Experience -->
         <section id="experience" class="py-20">
             <div class="container-app">
@@ -597,7 +626,7 @@
                             <p class="text-sm text-muted">September 2022 &ndash; May 2024</p>
                             <p class="mt-1 text-sm text-muted italic">SOFTWIND, Ariana, Tunisia</p>
                             <ul>
-                                <li>Project: FM-Inspection &ndash; Developed web and mobile apps to monitor objectives,
+                                <li>Project: FM-Inspection &ndash; Developed a Laravel backend and a Flutter mobile app to monitor objectives,
                                     KPIs, and field inspections; implemented scheduling, user management, and automatic
                                     report generation.</li>
                                 <li>Project: Dashboard EHC &ndash; Managed project classifications, stages, bid
@@ -789,6 +818,42 @@
                             </li>
                         </ul>
                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">Testimonials</p>
+                    <h2>What people say about my work</h2>
+                    <p class="subtitle">Feedback from managers and colleagues I've worked with</p>
+                </div>
+
+                <div class="grid grid-2 gap-6 max-w-4xl mx-auto">
+                    <div class="card testimonial-card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="mt-2 text-sm text-muted italic testimonial-quote">&ldquo;Khalil is a rigorous, self-driven developer. He quickly got up to speed on complex topics and delivered key features on schedule.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar"><i class="bi bi-person-fill"></i></span>
+                            <div>
+                                <p class="font-semibold">Example testimonial</p>
+                                <p class="text-xs text-muted">Project Manager &middot; to be replaced with a real quote</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card testimonial-card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="mt-2 text-sm text-muted italic testimonial-quote">&ldquo;Always upbeat and ready to help, Khalil pairs strong technical skills with a real sense of teamwork.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar"><i class="bi bi-person-fill"></i></span>
+                            <div>
+                                <p class="font-semibold">Example testimonial</p>
+                                <p class="text-xs text-muted">Fellow Developer &middot; to be replaced with a real quote</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

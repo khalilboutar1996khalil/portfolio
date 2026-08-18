@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/style.css?v=1">
+    <link rel="stylesheet" href="../assets/css/style.css?v=3">
 </head>
 
 <body>
@@ -316,10 +316,10 @@
                             <div class="icon-badge card-icon"><i class="bi bi-clipboard-data"></i></div>
                             <p class="mt-4 text-xs font-medium uppercase tracking-wide text-muted">SOFTWIND &middot; 2022 &ndash; 2024</p>
                             <h3 class="mt-1 text-lg font-semibold">FM-Inspection</h3>
-                            <p class="mt-2 text-sm text-muted">Plateforme web et mobile pour le suivi des objectifs, KPI et inspections terrain, avec planification, gestion des utilisateurs et génération automatique de rapports.</p>
+                            <p class="mt-2 text-sm text-muted">Backend Laravel exposant une API REST et application mobile Flutter pour le suivi des objectifs, KPI et inspections terrain, avec planification, gestion des utilisateurs et génération automatique de rapports.</p>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 <span class="tag-pill">Laravel</span>
-                                <span class="tag-pill">Angular</span>
+                                <span class="tag-pill">Flutter</span>
                                 <span class="tag-pill">API REST</span>
                             </div>
                         </div>
@@ -434,6 +434,35 @@
             </div>
         </section>
 
+        <!-- Case Study -->
+        <section id="case-study" class="py-20 section-tint">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">Zoom sur un projet</p>
+                    <h2>Étude de cas &mdash; FM-Inspection</h2>
+                    <p class="subtitle">Comment j'ai transformé un suivi d'inspections dispersé en une plateforme centralisée pour SOFTWIND</p>
+                </div>
+
+                <div class="grid grid-3 gap-6">
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-exclamation-triangle"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">Le problème</h3>
+                        <p class="mt-2 text-sm text-muted">Les inspections terrain, le suivi des objectifs et des KPI reposaient sur des outils dispersés (Excel, papier), rendant la consolidation des données et la génération de rapports lentes et sujettes aux erreurs.</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-tools"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">La solution</h3>
+                        <p class="mt-2 text-sm text-muted">Conception et développement de FM-Inspection : un backend Laravel exposant une API REST, consommée par une application mobile Flutter, avec planification des inspections, gestion des utilisateurs et des rôles, et génération automatique de rapports.</p>
+                    </div>
+                    <div class="card text-center reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:160ms">
+                        <div class="icon-badge card-icon mx-auto"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="mt-4 text-lg font-semibold">Le résultat</h3>
+                        <p class="mt-2 text-sm text-muted">Un point d'entrée unique pour piloter objectifs, KPI et inspections en temps réel, avec des rapports générés automatiquement à la place d'un suivi manuel et fragmenté.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Experience -->
         <section id="experience" class="py-20">
             <div class="container-app">
@@ -464,7 +493,7 @@
                             <p class="text-sm text-muted">Septembre 2022 &ndash; Mai 2024</p>
                             <p class="mt-1 text-sm text-muted italic">SOFTWIND, Ariana, Tunisie</p>
                             <ul>
-                                <li>Projet : FM-Inspection – Développement d'applications web et mobiles pour le suivi des objectifs, KPI et inspections terrain ; mise en place de la planification, gestion des utilisateurs et génération automatique de rapports.</li>
+                                <li>Projet : FM-Inspection – Développement d'un backend Laravel et d'une application mobile Flutter pour le suivi des objectifs, KPI et inspections terrain ; mise en place de la planification, gestion des utilisateurs et génération automatique de rapports.</li>
                                 <li>Projet : Dashboard EHC – Gestion des classifications de projets, étapes, modèles d'offres, import/export Excel, et création de tableaux de bord interactifs.</li>
                                 <li>Projet : Fédération Tunisienne de Football (FTF) – Développement de systèmes pour arbitres, terrains, ligues, gestion des matchs, paiements, et intégration Google Maps pour le calcul des distances.</li>
                             </ul>
@@ -635,6 +664,42 @@
                             </li>
                         </ul>
                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20">
+            <div class="container-app">
+                <div class="section-heading center reveal" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <p class="section-eyebrow mb-2">Témoignages</p>
+                    <h2>Ce qu'on dit de mon travail</h2>
+                    <p class="subtitle">Retours de managers et collègues avec qui j'ai collaboré</p>
+                </div>
+
+                <div class="grid grid-2 gap-6 max-w-4xl mx-auto">
+                    <div class="card testimonial-card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:0ms">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="mt-2 text-sm text-muted italic testimonial-quote">&laquo; Khalil est un développeur rigoureux et autonome. Il a rapidement pris en main des sujets complexes et livré des fonctionnalités clés dans les délais impartis. &raquo;</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar"><i class="bi bi-person-fill"></i></span>
+                            <div>
+                                <p class="font-semibold">Exemple de témoignage</p>
+                                <p class="text-xs text-muted">Chef de Projet &middot; à remplacer par un retour réel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card testimonial-card reveal" x-data x-intersect.once="$el.classList.add('is-visible')" style="transition-delay:80ms">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="mt-2 text-sm text-muted italic testimonial-quote">&laquo; Toujours de bonne humeur et prêt à aider, Khalil combine de solides compétences techniques avec un vrai sens du travail en équipe. &raquo;</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-avatar"><i class="bi bi-person-fill"></i></span>
+                            <div>
+                                <p class="font-semibold">Exemple de témoignage</p>
+                                <p class="text-xs text-muted">Collègue Développeur &middot; à remplacer par un retour réel</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
