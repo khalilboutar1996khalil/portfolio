@@ -366,10 +366,10 @@ html.dark .tech-badge { border-color: var(--color-surface-700); background: var(
 .hero-photo-wrap img {
   width: 100%;
   border-radius: 1.5rem;
-  border: 1px solid var(--color-neutral-200);
+  border: 6px solid var(--color-accent-700);
   box-shadow: 0 20px 40px -12px rgba(15,23,42,.15);
 }
-html.dark .hero-photo-wrap img { border-color: var(--color-surface-700); }
+html.dark .hero-photo-wrap img { border-color: var(--color-accent-400); }
 
 .hero-float-card {
   position: absolute;
