@@ -88,26 +88,36 @@ const CONTACT_WHATSAPP_NUMBER = '21653117158';
 (function () {
   const form = document.getElementById('whatsapp-contact-form');
   const toast = document.getElementById('whatsapp-contact-toast');
+  console.log('[contact-form] init — form found:', !!form, 'toast found:', !!toast);
   if (!form || !toast) return;
 
   let toastTimer = null;
   function showToast(html, isError, duration) {
-    toast.innerHTML = html;
+    clearTimeout(toastTimer);
+    // Drop 'show' first so the progress-bar animation it triggers (and the
+    // entrance transition) restart cleanly even if a toast is already visible.
+    toast.classList.remove('show');
+    toast.style.setProperty('--toast-duration', duration + 'ms');
+    const icon = isError ? 'bi-exclamation-circle-fill' : 'bi-check-circle-fill';
+    toast.innerHTML = `<i class="bi ${icon} toast-icon"></i><div class="toast-body">${html}</div>`;
+    void toast.offsetWidth; // force reflow before re-adding 'show'
     toast.classList.toggle('error', !!isError);
     toast.classList.add('show');
-    clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), duration);
   }
 
   form.addEventListener('submit', (e) => {
+    console.log('[contact-form] submit event fired');
     e.preventDefault();
     const data = new FormData(form);
     const name = (data.get('name') || '').toString().trim();
     const email = (data.get('email') || '').toString().trim();
     const subject = (data.get('subject') || '').toString().trim();
     const message = (data.get('message') || '').toString().trim();
+    console.log('[contact-form] fields:', { name, email, subject, message });
 
     if (!name || !email || !subject || !message) {
+      console.log('[contact-form] validation failed, showing error toast');
       showToast(form.dataset.error, true, 4000);
       return;
     }
@@ -121,14 +131,17 @@ const CONTACT_WHATSAPP_NUMBER = '21653117158';
     ].join('\n');
 
     const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    console.log('[contact-form] opening url:', url);
 
     // Open WhatsApp in a new tab instead of navigating the current one away —
     // this must happen synchronously, in direct response to the click, or
     // browsers (notably Safari) silently block it as a popup.
     const opened = window.open(url, '_blank', 'noopener');
+    console.log('[contact-form] window.open returned:', opened);
 
     if (!opened || opened.closed || typeof opened.closed === 'undefined') {
       // Popup blocked: give the visitor a link they can click themselves.
+      console.log('[contact-form] popup considered blocked, showing fallback toast');
       showToast(
         `${form.dataset.blocked}<a href="${url}" target="_blank" rel="noopener">${form.dataset.blockedLink}</a>`,
         true,
@@ -137,6 +150,7 @@ const CONTACT_WHATSAPP_NUMBER = '21653117158';
       return;
     }
 
+    console.log('[contact-form] success, showing toast + resetting form');
     showToast(form.dataset.success, false, 8000);
     form.reset();
   });

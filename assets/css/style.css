@@ -167,7 +167,7 @@ html.dark .card { border-color: var(--color-surface-700); background: var(--colo
 html.dark .card:hover { border-color: var(--color-accent-700); box-shadow: 0 16px 32px -10px rgba(0,0,0,.45); }
 
 .card-icon { transition: transform .3s ease-out; }
-.card:hover .card-icon { transform: scale(1.08) rotate(-4deg); }
+.card:hover .card-icon { transform: scale(1.08); }
 
 /* Card tilt/glow: a soft light follows the cursor and the card tilts toward
    it (mousemove sets --mx/--my and the inline transform in main.js). Purely
@@ -177,7 +177,7 @@ html.dark .card:hover { border-color: var(--color-accent-700); box-shadow: 0 16p
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.5), transparent 70%);
+  background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%), rgba(123,163,216,.4), transparent 70%);
   opacity: 0;
   transition: opacity .3s ease-out;
   pointer-events: none;
@@ -345,7 +345,7 @@ html.dark .mobile-panel .mobile-socials { border-color: var(--color-surface-800)
   padding-block: 4rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(120deg, var(--color-accent-50), var(--color-accent-100), var(--color-accent-200), var(--color-accent-50));
+  background: linear-gradient(120deg, var(--color-accent-50), var(--color-accent-100), var(--color-accent-50));
   background-size: 300% 300%;
   animation: hero-gradient-shift 16s ease-in-out infinite;
 }
@@ -603,22 +603,56 @@ html.dark .form-input:focus { box-shadow: 0 0 0 3px rgba(29,78,216,.25); }
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
   max-width: 24rem;
-  border-radius: .625rem;
-  padding: .75rem 1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 1.125rem 1.25rem 1.375rem;
   font-size: .875rem;
-  color: #fff;
-  box-shadow: 0 10px 25px -5px rgba(15,23,42,.25);
-  background: var(--color-neutral-900);
+  font-weight: 600;
+  color: var(--color-neutral-900);
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  box-shadow: 0 24px 48px -16px rgba(15,23,42,.3);
   opacity: 0;
-  transform: translateY(.5rem);
+  transform: translateY(1rem) scale(.92);
   pointer-events: none;
-  transition: opacity .25s ease-out, transform .25s ease-out;
+  transition: opacity .35s cubic-bezier(.34,1.56,.64,1), transform .35s cubic-bezier(.34,1.56,.64,1);
 }
-.toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.toast.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+html.dark .toast { background: var(--color-surface-800); border-color: var(--color-surface-700); color: var(--color-neutral-100); }
+
+.toast-icon { flex-shrink: 0; font-size: 1.5rem; line-height: 1; color: #22c55e; }
+.toast.error .toast-icon { color: #ef4444; }
+.toast-body { flex: 1; padding-top: .125rem; }
 .toast a { text-decoration: underline; }
-html.dark .toast { background: var(--color-surface-800); }
-.toast.error { background: #dc2626; }
+
+.toast::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-accent-500);
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.toast.error::after { background: #ef4444; }
+.toast.show::after {
+  animation: toast-progress linear forwards;
+  animation-duration: var(--toast-duration, 4s);
+}
+@keyframes toast-progress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity .25s ease-out; }
+  .toast.show::after { animation: none; }
+}
 
 /* Contact CTA banner */
 .contact-cta {
@@ -700,14 +734,10 @@ footer.site-footer .grid3 { display: grid; gap: 3rem; padding-block: 4rem; posit
   background: var(--color-accent-100);
   font-size: 1.25rem;
   color: var(--color-accent-700);
-  animation: footer-glow-pulse 3.5s ease-in-out infinite;
+  transition: box-shadow .3s ease-out;
 }
+.footer-icon-badge:hover { box-shadow: 0 0 18px 5px rgba(29,78,216,.3); }
 html.dark .footer-icon-badge { background: rgba(29,78,216,.2); color: var(--color-accent-400); }
-
-@keyframes footer-glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(29,78,216,.3); }
-  50% { box-shadow: 0 0 18px 5px rgba(29,78,216,.3); }
-}
 
 .footer-nav-list { margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; font-size: .875rem; }
 .footer-nav-list a { display: inline-flex; align-items: center; gap: .375rem; color: var(--color-neutral-600); transition: color .15s; }
