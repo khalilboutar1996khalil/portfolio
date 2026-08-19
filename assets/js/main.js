@@ -19,6 +19,36 @@
   }
 })();
 
+// Card tilt/glow: a soft highlight follows the cursor and the card tilts
+// toward it. Skipped for touch input (no meaningful hover position) and for
+// prefers-reduced-motion — it's purely decorative.
+(function () {
+  var cards = document.querySelectorAll('.card');
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!cards.length || !canHover || reduceMotion) return;
+
+  var MAX_TILT = 6;
+
+  cards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      card.style.setProperty('--mx', (x * 100) + '%');
+      card.style.setProperty('--my', (y * 100) + '%');
+      var rotateY = (x - 0.5) * MAX_TILT * 2;
+      var rotateX = (0.5 - y) * MAX_TILT * 2;
+      card.style.transform = 'perspective(800px) translateY(-.375rem) scale(1.015) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+      card.classList.add('tilt-active');
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+      card.classList.remove('tilt-active');
+    });
+  });
+})();
+
 // Scroll-spy: highlight the nav link matching the section currently in view,
 // since clicking a nav item wasn't leaving any visible "current" indicator.
 (function () {

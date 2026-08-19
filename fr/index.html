@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/style.css?v=7">
+    <link rel="stylesheet" href="../assets/css/style.css?v=8">
 </head>
 
 <body>
@@ -286,6 +286,33 @@
                         <div x-show="cat === 'other'" x-transition.opacity class="skill-chip">
                             <span class="skill-ico"><i class="bi bi-bug"></i></span> Tests QA
                         </div>
+                    </div>
+                </div>
+
+                <div class="skill-bars mt-16" x-data x-intersect.once="$el.classList.add('is-visible')">
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Laravel</span><span class="skill-bar-pct">90%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:90%"></div></div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Angular</span><span class="skill-bar-pct">85%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:85%"></div></div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>PHP</span><span class="skill-bar-pct">90%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:90%"></div></div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Java / Spring Boot</span><span class="skill-bar-pct">75%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:75%"></div></div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>MySQL</span><span class="skill-bar-pct">80%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Linux / RHCSA</span><span class="skill-bar-pct">80%</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
                     </div>
                 </div>
             </div>
@@ -829,7 +856,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="../assets/js/main.js?v=4" defer></script>
+    <script src="../assets/js/main.js?v=5" defer></script>
 </body>
 
 </html>
