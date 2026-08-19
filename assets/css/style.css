@@ -557,7 +557,13 @@ html.dark .form-input:focus { box-shadow: 0 0 0 3px rgba(29,78,216,.25); }
   color: #fff;
   box-shadow: 0 10px 25px -5px rgba(15,23,42,.25);
   background: var(--color-neutral-900);
+  opacity: 0;
+  transform: translateY(.5rem);
+  pointer-events: none;
+  transition: opacity .25s ease-out, transform .25s ease-out;
 }
+.toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.toast a { text-decoration: underline; }
 html.dark .toast { background: var(--color-surface-800); }
 .toast.error { background: #dc2626; }
 

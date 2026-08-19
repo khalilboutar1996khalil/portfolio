@@ -43,7 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/style.css?v=6">
+    <link rel="stylesheet" href="../assets/css/style.css?v=7">
 </head>
 
 <body>
@@ -907,14 +907,13 @@
 
                     <div class="contact-col-3 reveal" x-data x-intersect.once="$el.classList.add('is-visible')"
                         style="transition-delay:100ms">
-                        <div x-data="contactForm({
-                                messages: {
-                                    success: 'Redirecting you to WhatsApp…',
-                                    error: 'Please fill in all fields before sending.'
-                                },
-                                labels: { name: 'Name', email: 'Email', subject: 'Subject', message: 'Message' }
-                            })">
-                            <form @submit.prevent="submit" class="card space-y-5">
+                        <div>
+                            <form id="whatsapp-contact-form" class="card space-y-5"
+                                data-success="Opening WhatsApp in a new tab…"
+                                data-error="Please fill in all fields before sending."
+                                data-blocked="Your browser blocked WhatsApp from opening. "
+                                data-blocked-link="Click here to open it"
+                                data-label-name="Name" data-label-email="Email" data-label-subject="Subject" data-label-message="Message">
                                 <div class="form-row-2">
                                     <div>
                                         <label for="name-field" class="form-field">Name</label>
@@ -939,8 +938,7 @@
                                 </button>
                             </form>
 
-                            <div x-show="toast" x-cloak x-transition :class="toastType === 'error' ? 'error' : ''"
-                                class="toast" x-text="toast"></div>
+                            <div id="whatsapp-contact-toast" class="toast"></div>
                         </div>
                     </div>
 
@@ -996,7 +994,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="../assets/js/main.js?v=1" defer></script>
+    <script src="../assets/js/main.js?v=4" defer></script>
 </body>
 
 </html>

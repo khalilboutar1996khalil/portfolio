@@ -49,56 +49,65 @@
 // WhatsApp phone number the contact form sends to (Tunisia country code + local number).
 const CONTACT_WHATSAPP_NUMBER = '21653117158';
 
-// Shared helper for the contact form: builds a WhatsApp message from the
-// submitted fields and opens wa.me with it pre-filled (used via
-// Alpine x-data="contactForm()" on the contact pages).
-function contactForm(options) {
-  const opts = options || {};
-  return {
-    sending: false,
-    toast: null,
-    toastType: null,
-    messages: opts.messages || {
-      success: 'Redirecting you to WhatsApp…',
-      error: 'Please fill in all fields before sending.',
-    },
-    labels: opts.labels || {
-      name: 'Name',
-      email: 'Email',
-      subject: 'Subject',
-      message: 'Message',
-    },
-    submit(e) {
-      const form = e.target;
-      const data = new FormData(form);
-      const name = (data.get('name') || '').trim();
-      const email = (data.get('email') || '').trim();
-      const subject = (data.get('subject') || '').trim();
-      const message = (data.get('message') || '').trim();
+// Contact form: builds a WhatsApp message from the submitted fields and opens
+// wa.me with it pre-filled. Plain DOM APIs on purpose — this mirrors the
+// pattern already proven working in production on visa-document.netlify.app,
+// after the Alpine-based version (@submit.prevent="submit") turned out to be
+// unreliable in some browsers. Per-language labels/messages come from data-*
+// attributes on the <form> so this same script serves both fr/ and en/.
+(function () {
+  const form = document.getElementById('whatsapp-contact-form');
+  const toast = document.getElementById('whatsapp-contact-toast');
+  if (!form || !toast) return;
 
-      if (!name || !email || !subject || !message) {
-        this.toastType = 'error';
-        this.toast = this.messages.error;
-        setTimeout(() => (this.toast = null), 4000);
-        return;
-      }
+  let toastTimer = null;
+  function showToast(html, isError, duration) {
+    toast.innerHTML = html;
+    toast.classList.toggle('error', !!isError);
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), duration);
+  }
 
-      const text = [
-        `${this.labels.name}: ${name}`,
-        `${this.labels.email}: ${email}`,
-        `${this.labels.subject}: ${subject}`,
-        '',
-        message,
-      ].join('\n');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get('name') || '').toString().trim();
+    const email = (data.get('email') || '').toString().trim();
+    const subject = (data.get('subject') || '').toString().trim();
+    const message = (data.get('message') || '').toString().trim();
 
-      this.toastType = 'success';
-      this.toast = this.messages.success;
+    if (!name || !email || !subject || !message) {
+      showToast(form.dataset.error, true, 4000);
+      return;
+    }
 
-      // Navigate the current tab to WhatsApp instead of window.open(): a new
-      // window/tab opened from inside a framework event handler is routinely
-      // blocked by browser popup blockers (notably Safari) with no error —
-      // a plain location change is never treated as a popup.
-      window.location.href = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-    },
-  };
-}
+    const text = [
+      `${form.dataset.labelName}: ${name}`,
+      `${form.dataset.labelEmail}: ${email}`,
+      `${form.dataset.labelSubject}: ${subject}`,
+      '',
+      message,
+    ].join('\n');
+
+    const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    // Open WhatsApp in a new tab instead of navigating the current one away —
+    // this must happen synchronously, in direct response to the click, or
+    // browsers (notably Safari) silently block it as a popup.
+    const opened = window.open(url, '_blank', 'noopener');
+
+    if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+      // Popup blocked: give the visitor a link they can click themselves.
+      showToast(
+        `${form.dataset.blocked}<a href="${url}" target="_blank" rel="noopener">${form.dataset.blockedLink}</a>`,
+        true,
+        8000
+      );
+      return;
+    }
+
+    showToast(form.dataset.success, false, 8000);
+    form.reset();
+  });
+})();
