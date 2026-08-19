@@ -170,7 +170,7 @@ html.dark .card:hover { border-color: var(--color-accent-700); box-shadow: 0 16p
 /* Reveal on scroll */
 .reveal {
   opacity: 0;
-  transform: translateY(1.25rem) scale(.97);
+  transform: translateY(2.5rem) scale(.97);
   transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
 }
 .reveal.is-visible {
@@ -179,7 +179,7 @@ html.dark .card:hover { border-color: var(--color-accent-700); box-shadow: 0 16p
 }
 .reveal-init {
   opacity: 0;
-  transform: translateY(1rem) scale(.97);
+  transform: translateY(2rem) scale(.97);
   transition: opacity .35s ease-out, transform .35s ease-out;
 }
 
